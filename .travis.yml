@@ -4,5 +4,5 @@ jdk:
   - oraclejdk8
 
 script:
-  - gradle clean 
-  - gradle check
+  - ./gradlew clean 
+  - ./gradlew check
