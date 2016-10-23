@@ -7,8 +7,8 @@ import org.junit.Test;
 public class GameTest {
 
 	@Test
-	public void firstTest(){
-		
+	public void testThatFails(){
+		assertEquals(1,2);
 	}
 
 }
