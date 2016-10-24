@@ -21,11 +21,11 @@
   - Done
 
 Optional:
+
 1. More build targets (0,5 point per item, never more than 1 for this part) here are examples of build targets.
   - Code coverage and other code inspections. Report or other kind of result must be available outside of the build machine after each run.
   - Integrate database
   - Documentation is converted to another format (e.g PDF or Html) and is easily accessible outside of the build machine after each run.
-
 2. Run focused integration or End-to-end tests (e.g. Selenium). It is necessary to run this on external staging server (e.g. Heroku). To run integration test the application needs to connect to external system e.g. database. To run end-to-end test the system needs to have GUI (e.g. webUI). (1 point)
 3. Use feature branches and pull request for all features. It must be clear that this workflow was used the whole time and that the team was using reviews before accepting pull-requests. (1 point)
 4. Continuous Delivery. For each code change the CI server runs these steps:
