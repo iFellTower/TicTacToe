@@ -22,4 +22,5 @@ This is our initial *class diagram*. It is of course subject to change and is mo
 ![Class diagram](images/cdiagram.PNG)
 
 ### Prototype
+
 ![Prototype](images/prototype.PNG)
