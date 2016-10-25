@@ -10,6 +10,7 @@ before_install:
 script:
   - ./gradlew clean 
   - ./gradlew check
+  - ./gradlew jacocTestReport
 
 after_success:
   - codecov
