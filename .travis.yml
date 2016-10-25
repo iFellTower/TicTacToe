@@ -1,8 +1,16 @@
 language: java
-
 jdk:
   - oraclejdk8
+
+sudo: false # faster builds
+
+before_install:
+  - pip install --user codecov
 
 script:
   - ./gradlew clean 
   - ./gradlew check
+  - ./gradlew jacocTestReport
+
+after_success:
+  - codecov
