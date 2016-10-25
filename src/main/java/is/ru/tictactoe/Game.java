@@ -1,4 +1,5 @@
 package is.ru.tictactoe;
+import static spark.Spark.*;
 
 public class Game
 {
@@ -6,7 +7,7 @@ public class Game
 	Board board = new Board();
 	int turn;
 	boolean winner;
-	
+
 	public Game()
 	{
 
@@ -26,11 +27,14 @@ public class Game
 	public boolean validInput(char input)
 	{
 		return false;
-	} 
+	}
 
 	public void checkInput()
 	{
 
 	}
 
+	public static void main(String[] args) {
+    get("/hello", (req, res) -> "Hello World");
+  }
 }
