@@ -6,6 +6,5 @@ before_script:
 script:
   - ./gradlew clean 
   - ./gradlew check
-  - ./gradlew codeCoverageReport
 after_success:
   - bush <(curl -s https://codecov.io/bash)
