@@ -7,4 +7,4 @@ script:
   - ./gradlew clean 
   - ./gradlew check
 after_success:
-  - bush <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
