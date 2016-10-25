@@ -1,16 +1,15 @@
 language: java
 jdk:
-  - oraclejdk8
-
-sudo: false # faster builds
-
+- oraclejdk8
+sudo: false
 before_install:
-  - pip install --user codecov
-
+- pip install --user codecov
 script:
-  - ./gradlew clean 
-  - ./gradlew check
-  - ./gradlew jacocTestReport
-
+- "./gradlew clean"
+- "./gradlew check"
+- "./gradlew jacocTestReport"
 after_success:
-  - codecov
+- codecov
+deploy:
+  api_key:
+    secure: TXYV/XzlQTCEOb4RRc6x1v8HycBBoz560TVVyCESKbLzWt8VZaWmg1urdGGlDM2g6muhrJVNO0ElNMVRl5gBtQ6sn77Vb9KrgrkkY1Dt3Il1gON+ytszLcm9gVlvgp7Dqh6w5ZkIcCCY4U2CXq0rl7plbngRIoNrQWRFbl5KCdWaJFJlt4mgzwvJkmsJppRTRXXiLwEeB00IfN7bYRpU9EcQKzwVtDbXSdMjSmmekD7SY5ekrAdSCQf87A7WK5qxObcNya/nkE6CPqVMVRMkJqYyTqBMJF3ZSolq5UqXzPakQhCXeM4O4iucVEnFPEq/Sc+aT9Tmjnle1f7ZNlYfW5wKBY+FQ1FUQffRMYhFPB33pt9EfLiOAhXZcLQ/fd0nFV6MLyM5Afo6W7m48rRvX0t9YLlHwlBpAPnvsZBx7/PRgFYdFAmQcDK4G9TiHtAwzQspY/vV127YXQj+Zt5zAa3+lWieWGXp+bGL8iiohpb9yZkcqFBlHlss2HZWjCINxyME5XzhlAs5VzJe8+gavkawQOEm4DMqR/TkRtbbeZjlFaUiNYAsQ074/0cR+6Tcfr6sXRBrfP2usHIfn7sxmqf3dfKJyNlfF67mZAFddvY483IrPPCssvwLCVWUD3YrU1DxhgAp4lpYBcNnY5InDT/sEHhjkVMIjxfbZn/zlUg=
