@@ -21,4 +21,8 @@ public class Player {
 	public void incrementScore() {
 		score++;
 	}
+
+	public int whatIsTheMeaningOfLife() {
+		return 42;
+	}
 }
