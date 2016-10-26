@@ -11,4 +11,10 @@ public class PlayerTest {
 	       Player p = new Player('X');
            assertEquals('X', p.getChar());
 	}
+
+    @Test
+    public void testScore() {
+           Player p = new Player('X');
+           assertEquals(0, p.getScore());
+    }
 }
