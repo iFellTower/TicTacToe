@@ -8,13 +8,20 @@ public class PlayerTest {
 
 	@Test
 	public void testCharacter() {
-	       Player p = new Player('X');
-           assertEquals('X', p.getChar());
+       Player p = new Player('X');
+       assertEquals('X', p.getChar());
 	}
 
     @Test
     public void testScore() {
-           Player p = new Player('X');
-           assertEquals(0, p.getScore());
+       Player p = new Player('X');
+       assertEquals(0, p.getScore());
+    }
+
+    @Test
+    public void testIncrementScore() {
+        Player p = new Player('X');
+        p.incrementScore();
+        assertEquals(1,p.getScore());
     }
 }
