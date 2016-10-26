@@ -1,14 +1,15 @@
 package is.ru.tictactoe;
 
 public class Player {
-	
-	int score;
-	char symbol;
-	
-	public Player(char s)
-	{
 
+	private int score;
+	private char symbol;
+
+	public Player(char s) {
+		symbol = s;
 	}
 
-
+	public char getChar() {
+		return symbol;
+	}
 }
