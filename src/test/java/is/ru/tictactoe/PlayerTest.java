@@ -9,7 +9,7 @@ public class PlayerTest {
 	@Test
 	public void testCharacter() {
        Player p = new Player('X');
-       assertEquals('X', p.getChar());
+       assertEquals('X', p.getSymbol());
 	}
 
     @Test

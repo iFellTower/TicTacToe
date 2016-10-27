@@ -21,7 +21,7 @@ public class Game {
 
 	public void runGame() {
 
-	}
+    }
 
 	public void drawScreen() {
 
@@ -43,13 +43,10 @@ public class Game {
         Point point = convertToPoint(input);
 
         if(turn % 2 == 0) {
-            //should be playerX.getSymbol()
-            board.insert(point, 'X');
+            board.insert(point, playerX.getSymbol());
         }
-        else {
-            //should be playerX.getSymbol()
-            board.insert(point, 'O');
-        }
+        else
+            board.insert(point, playerO.getSymbol());
 
         turn++;
     }

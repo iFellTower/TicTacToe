@@ -10,7 +10,7 @@ public class Player {
 		symbol = s;
 	}
 
-	public char getChar() {
+	public char getSymbol() {
 		return symbol;
 	}
 

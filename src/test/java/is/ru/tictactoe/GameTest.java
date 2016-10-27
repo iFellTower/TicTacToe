@@ -35,7 +35,12 @@ public class GameTest {
 		Game game = new Game();
 		assertEquals(0,game.getTurn());
 	}
-
+	/*@Test
+	public void testRunGame() {
+		Game game = new Game();
+		game.runGame()
+		assertEquals(1, game.getTurn())
+	}*/
 
 
 
