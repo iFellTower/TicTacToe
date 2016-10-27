@@ -33,10 +33,17 @@ public class BoardTest {
 	}
 
 	@Test
+	public void testInsertPosIsFree() {
+		Board b = new Board();
+		assertTrue("Board: Should return true because pos is free",b.insert(new Point(1,1), 'X'));
+		assertFalse("Board: Should return false because pos is not free",b.insert(new Point(1,1), 'X'));
+	}
+
+	@Test
 	public void testIsFreeTrue() {
 		Point pos = new Point(1,1);
 		Board b = new Board();
-		assertTrue("Should return true", b.isFree(pos));
+		assertTrue("Board: Should return true", b.isFree(pos));
 	}
 
 	@Test
