@@ -8,10 +8,17 @@ public class Board {
 
 	public Board(){
 		board = new char[3][3];
+		fillBoard();
 	}
 
-	public void draw() {
-
+	private void fillBoard() {
+		char num = '1';
+		for(int i = 0; i < 3; i++) {
+			for(int j = 0; j < 3; j++) {
+				board[i][j] = num;
+				num++;
+			}
+		}
 	}
 
 	public void insert(Point pos, char playerSymbol) {
@@ -27,5 +34,9 @@ public class Board {
 
 	public Boolean isFree(Point pos) {
 		return ((board[pos.x][pos.y] != 'X') && (board[pos.x][pos.y] != 'O'));
+	}
+
+	public char[][] getBoard() {
+		return board;
 	}
 }
