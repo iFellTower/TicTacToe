@@ -18,9 +18,11 @@ public class UI {
 	}
 
 	// Reads input from StdIn and sends it forward
-	public void getInput () {
+	public int getInput () {
+		Scanner s = new Scanner(System.in);
+		int input  = s.nextInt();
 
-		
+		return input;
 	}
 }
 
