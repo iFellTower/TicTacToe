@@ -20,11 +20,11 @@ public class Board {
 	}
 
 	public boolean insert(Point pos, int turn) {
-		if(pos.getX() < 0 || pos.getX() > 2){
-			throw new IndexOutOfBoundsException("Board: Index out of bounds: (" + pos.getX() + "," + pos.getY() + ") is illegal");
+		if(pos.getX() < 0 || pos.getX() > 2) {
+			throw new IndexOutOfBoundsException("Board: Index out of bounds: (" + pos.x + "," + pos.y + ") is illegal");
 		}
-		if(pos.getY() < 0 || pos.getY() > 2){
-			throw new IndexOutOfBoundsException("Board: Index out of bounds: (" + pos.getX() + "," + pos.getY() + ") is illegal");
+		if(pos.getY() < 0 || pos.getY() > 2) {
+			throw new IndexOutOfBoundsException("Board: Index out of bounds: (" + pos.x + "," + pos.y + ") is illegal");
 		}
 		return false;
 	}

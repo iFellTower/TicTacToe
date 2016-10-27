@@ -18,9 +18,9 @@ public class BoardTest {
   	public final ExpectedException exception = ExpectedException.none();
 
 	@Test
-	public void testInvalidInsert(){
+	public void testInvalidInsertUpper() {
 		exception.expect(IndexOutOfBoundsException.class);
-		exception.expectMessage("Board: Index out of bounds");
+		exception.expectMessage("Board: Index out of bounds: (4,4) is illegal");
 		Board b = new Board();
 		b.insert(new Point(4,4), 1);
 	}
