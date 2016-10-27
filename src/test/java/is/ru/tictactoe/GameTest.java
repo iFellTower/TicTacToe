@@ -15,7 +15,7 @@ public class GameTest {
 
 
 	@Test
-	public void checkValidInput() {
+	public void testValidInput() {
 		Game game = new Game();
 		assertEquals(false,game.validInput(-1));
 		assertEquals(true,game.validInput(2));
@@ -23,8 +23,24 @@ public class GameTest {
 		assertEquals(true,game.validInput(9));
 	}
 
-	
+	@Test
+	public void testInsertIntoBoard() {
+		Game game = new Game();
+		game.insertIntoBoard(5);
+		assertEquals(1,game.getTurn());
+	}
 
+	@Test
+	public void testGetTurn() {
+		Game game = new Game();
+		assertEquals(0,game.getTurn());
+	}
+	/*@Test
+	public void testRunGame() {
+		Game game = new Game();
+		game.runGame()
+		assertEquals(1, game.getTurn())
+	}*/
 
 
 

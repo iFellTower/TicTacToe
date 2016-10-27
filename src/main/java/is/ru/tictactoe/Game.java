@@ -8,16 +8,20 @@ public class Game {
 	private Board board;
 	private int turn;
 	private boolean winner;
+    private Player playerX;
+    private Player playerO;
 
 	public Game() {
 		 board = new Board();
 		 turn = 0;
 		 winner = false;
+         playerX = new Player('X');
+         playerO = new Player('O');
 	}
 
 	public void runGame() {
 
-	}
+    }
 
 	public void drawScreen() {
 
@@ -36,7 +40,15 @@ public class Game {
     }
 
     public void insertIntoBoard(int input) {
+        Point point = convertToPoint(input);
 
+        if(turn % 2 == 0) {
+            board.insert(point, playerX.getSymbol());
+        }
+        else
+            board.insert(point, playerO.getSymbol());
+
+        turn++;
     }
 
     private Point convertToPoint(int input) {
@@ -67,5 +79,8 @@ public class Game {
             return point;
     }
 
+    public int getTurn() {
+        return turn;
+    }
 }
 
