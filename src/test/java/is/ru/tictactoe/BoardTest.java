@@ -1,9 +1,7 @@
 package is.ru.tictactoe;
 
 import java.awt.Point;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 import org.junit.rules.ExpectedException;
 import org.junit.Rule;
 
@@ -52,6 +50,20 @@ public class BoardTest {
 		Board b = new Board();
 		b.insert(pos, 'X');
 		assertFalse("Should return false", b.isFree(pos));
+	}
+
+	@Test
+	public void testGetBoard() {
+		char[][] testBoard = new char[3][3];
+		char num = '1';
+		for(int i = 0; i < 3; i++) {
+			for(int j = 0; j < 3; j++) {
+				testBoard[i][j] = num;
+				num++;
+			}
+		}
+		Board b = new Board();
+		assertArrayEquals(testBoard, b.getBoard());
 	}
 
 }
