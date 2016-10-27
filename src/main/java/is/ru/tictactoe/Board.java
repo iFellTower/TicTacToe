@@ -8,11 +8,12 @@ public class Board {
 	private Player playerX;
 	private Player playerO;
 
-	char[][] board = new char[3][3];
+	private char[][] board = new char[3][3];
 
 	public Board(){
 		playerX = new Player('X');
 		playerO = new Player('O');
+
 	}
 
 	public void draw() {
@@ -29,7 +30,7 @@ public class Board {
 		return false;
 	}
 
-	public void isFree(char input) {
-
+	public Boolean isFree(Point pos) {
+		return ((board[pos.x][pos.y] != 'X') && (board[pos.x][pos.y] != 'O'));
 	}
 }

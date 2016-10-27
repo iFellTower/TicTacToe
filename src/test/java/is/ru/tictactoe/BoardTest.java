@@ -2,17 +2,13 @@ package is.ru.tictactoe;
 
 import java.awt.Point;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.rules.ExpectedException;
 import org.junit.Rule;
 
 import org.junit.Test;
 
 public class BoardTest {
-
-	@Test
-	public void firstTest() {
-		//assertEquals(0, Board.isFree('3'));
-	}
 
 	@Rule
   	public final ExpectedException exception = ExpectedException.none();
@@ -24,4 +20,12 @@ public class BoardTest {
 		Board b = new Board();
 		b.insert(new Point(4,4), 1);
 	}
+
+	@Test
+	public void testIsFreeTrue() {
+		Point pos = new Point(1,1);
+		Board b = new Board();
+		assertTrue("Should return true", b.isFree(pos));
+	}
+
 }
