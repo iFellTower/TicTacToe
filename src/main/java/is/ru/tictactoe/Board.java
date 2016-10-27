@@ -21,9 +21,15 @@ public class Board {
 		}
 	}
 
-	public void insert(Point pos, char playerSymbol) {
+	public boolean insert(Point pos, char playerSymbol) {
 		validatePosition(pos);
-		board[pos.x][pos.y] = playerSymbol;
+		if(isFree(pos)){
+			board[pos.x][pos.y] = playerSymbol;
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	private void validatePosition(Point pos) {
