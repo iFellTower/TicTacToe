@@ -20,7 +20,10 @@ public class Game {
 
 	}
 
-	public boolean validInput(char input) {
+	public boolean validInput(int input) {
+		if(input >= 0 && input <= 8){
+			return true;
+		}
 		return false;
 	}
 
