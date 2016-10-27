@@ -82,4 +82,10 @@ public class BoardTest {
 		assertArrayEquals(testBoard, b.getBoard());
 	}
 
+	@Test
+	public void testWinner() {
+		Board b = new Board();
+		assertFalse("Board: Should return false", b.winner());
+	}
+
 }
