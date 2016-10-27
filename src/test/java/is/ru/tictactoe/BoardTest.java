@@ -86,6 +86,11 @@ public class BoardTest {
 	public void testWinner() {
 		Board b = new Board();
 		assertFalse("Board: Should return false", b.winner());
+
+		for (int i = 0; i < 3; i++) {
+			b.insert(new Point(0, i), 'X');
+		}
+		assertTrue("Board: Should return true", b.winner());
 	}
 
 	@Test
