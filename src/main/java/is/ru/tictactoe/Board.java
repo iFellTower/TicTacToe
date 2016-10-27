@@ -68,4 +68,18 @@ public class Board {
 
 		return false;
 	}
+
+	public boolean isFull() {
+		return checkIsFull();
+	}
+
+	private boolean checkIsFull() {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (board[i][j] != 'X' && board[i][j] != 'O')
+					return false;
+			}
+		}
+		return true;
+	}
 }

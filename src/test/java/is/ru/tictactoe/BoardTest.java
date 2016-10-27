@@ -88,4 +88,20 @@ public class BoardTest {
 		assertFalse("Board: Should return false", b.winner());
 	}
 
+	@Test
+	public void testIsFull() {
+		Board b = new Board();
+		assertFalse("Board: Should return false", b.isFull());
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				b.insert(new Point(i, j), 'X');
+			}
+		}
+
+		assertTrue("Board: Should return true", b.isFull());
+	}
+
+
+
 }
