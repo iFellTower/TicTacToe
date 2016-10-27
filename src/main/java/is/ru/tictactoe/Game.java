@@ -16,7 +16,7 @@ public class Game {
 		 turn = 0;
 		 winner = false;
          playerX = new Player('X');
-         playerO = new Player('Y');
+         playerO = new Player('O');
 	}
 
 	public void runGame() {
