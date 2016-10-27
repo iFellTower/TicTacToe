@@ -11,4 +11,14 @@ public class GameTest {
 
 	}
 
+	@Test
+	public void checkValidInput() {
+		Game game = new Game();
+		assertEquals(false,game.validInput(-1));
+		assertEquals(true,game.validInput(2));
+		assertEquals(true,game.validInput(3));
+		assertEquals(true,game.validInput(9));
+	}
+
+
 }

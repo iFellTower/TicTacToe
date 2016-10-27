@@ -1,6 +1,8 @@
 package is.ru.tictactoe;
 import static spark.Spark.*;
 
+import java.awt.Point;
+
 public class Game {
 
 	Board board = new Board();
@@ -20,11 +22,16 @@ public class Game {
 
 	}
 
-	public boolean validInput(char input) {
+	public boolean validInput(int input) {
+
+		if(input >= 1 && input <= 9){
+			return true;
+		}
 		return false;
 	}
 
 	public void checkInput() {
+
 
 	}
 
