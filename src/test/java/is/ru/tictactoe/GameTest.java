@@ -6,7 +6,12 @@ import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 
+
+
 public class GameTest {
+
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
 
 	@Test
 	public void firstTest() {
@@ -21,16 +26,11 @@ public class GameTest {
 		assertEquals(true,game.validInput(3));
 		assertEquals(true,game.validInput(9));
 	}
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
+	
 	
 	@Test
-	public void checkGameInput() {
-		Game game = new Game();
-		game.checkInput();
-		assertEquals(1,game.turn);
-
-		
+	public void testInsertIntoBoard() {
+	
 
 	}
 
