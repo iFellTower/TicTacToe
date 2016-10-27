@@ -24,7 +24,7 @@ public class BoardTest {
 		exception.expect(IndexOutOfBoundsException.class);
 		exception.expectMessage("Board: Index out of bounds: (4,4) is illegal");
 		Board b = new Board();
-		b.insert(new Point(4,4), 1);
+		b.insert(new Point(4,4), 'X');
 	}
 
 	@Test
@@ -32,14 +32,6 @@ public class BoardTest {
 		exception.expect(IndexOutOfBoundsException.class);
 		exception.expectMessage("Board: Index out of bounds: (-1,-2) is illegal");
 		Board b = new Board();
-		b.insert(new Point(-1,-2), 1);
-	}
-
-	@Test
-	public void testInsertTurn() {
-		exception.expect(IllegalArgumentException.class);
-		exception.expectMessage("Board: Illegal turn value: 15");
-		Board b = new Board();
-		b.insert(new Point(1,1), 15);
+		b.insert(new Point(-1,-2), 'X');
 	}
 }
