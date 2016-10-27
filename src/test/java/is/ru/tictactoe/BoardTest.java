@@ -3,6 +3,7 @@ package is.ru.tictactoe;
 import java.awt.Point;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import org.junit.rules.ExpectedException;
 import org.junit.Rule;
 
@@ -36,6 +37,14 @@ public class BoardTest {
 		Point pos = new Point(1,1);
 		Board b = new Board();
 		assertTrue("Should return true", b.isFree(pos));
+	}
+
+	@Test
+	public void testIsFreeFalse() {
+		Point pos = new Point(1,1);
+		Board b = new Board();
+		b.insert(pos, 'X');
+		assertFalse("Should return false", b.isFree(pos));
 	}
 
 }
