@@ -26,6 +26,9 @@ public class Board {
 		if(pos.getY() < 0 || pos.getY() > 2) {
 			throw new IndexOutOfBoundsException("Board: Index out of bounds: (" + pos.x + "," + pos.y + ") is illegal");
 		}
+		if(turn < 1 || turn > 9) {
+			throw new IllegalArgumentException("Board: Illegal turn value: " + turn);
+		}
 		return false;
 	}
 
