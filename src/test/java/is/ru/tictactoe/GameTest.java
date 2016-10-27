@@ -1,6 +1,6 @@
 package is.ru.tictactoe;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.Rule;
@@ -24,17 +24,11 @@ public class GameTest {
 	}
 
 	@Test
-	public void testInsertIntoBoard() {
+	public void testWinnerAtStart() {
 		Game game = new Game();
-		game.insertIntoBoard(5);
-		assertEquals(1,game.getTurn());
+		assertFalse("Game: Should return false", game.getWinner());
 	}
 
-	@Test
-	public void testGetTurn() {
-		Game game = new Game();
-		assertEquals(0,game.getTurn());
-	}
 	/*@Test
 	public void testRunGame() {
 		Game game = new Game();

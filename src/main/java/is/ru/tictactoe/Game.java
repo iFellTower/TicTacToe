@@ -1,38 +1,50 @@
 package is.ru.tictactoe;
-import static spark.Spark.*;
 
 import java.awt.Point;
 
 public class Game {
 
 	private Board board;
-	private int turn;
 	private boolean winner;
     private Player playerX;
     private Player playerO;
+	private Player currPlayer;
+	private static UI ui;
 
 	public Game() {
 		 board = new Board();
-		 turn = 0;
 		 winner = false;
          playerX = new Player('X');
          playerO = new Player('O');
+		 currPlayer = playerX;
+		 ui = new UI();
 	}
 
 	public void runGame() {
+		int input;
+		while(!winner || !board.isFull()){
+			drawScreen();
+			do{
+				input = ui.getInput();
+			}while(!validInput(input));
+			insertIntoBoard(input);
+			checkIfWinner();
+			if(winner || board.isFull())
+				break;
+			switchPlayer();
+		}
+		declareWinner();
+	}
 
-    }
-
-	public void drawScreen() {
-
+	private void drawScreen() {
+		ui.drawBoard(board);
 	}
 
 	public boolean validInput(int input) {
         if(input >= 1 && input <= 9){
             Point point = convertToPoint(input);
-            if (board.isFree(point)) {
+            if (board.isFree(point))
                 return true;
-            }
             else
                 return false;
         }
@@ -41,17 +53,10 @@ public class Game {
 
     public void insertIntoBoard(int input) {
         Point point = convertToPoint(input);
-
-        if(turn % 2 == 0) {
-            board.insert(point, playerX.getSymbol());
-        }
-        else
-            board.insert(point, playerO.getSymbol());
-
-        turn++;
+        board.insert(point, currPlayer.getSymbol());
     }
 
-    private Point convertToPoint(int input) {
+    public Point convertToPoint(int input) {
         Point point = null;
         switch (input) {
             case 1:  point = new Point(0,0);
@@ -74,13 +79,34 @@ public class Game {
                     break;
             default: // Will not run because of check in validInput.
                      break;
-                 }
- 
+         	}
+
             return point;
     }
+	public boolean getWinner() {
+		return winner;
+	}
 
-    public int getTurn() {
-        return turn;
-    }
+	private void checkIfWinner() {
+		winner = board.winner();
+	}
+
+	private void declareWinner() {
+		if(winner)
+			ui.declareWinner(currPlayer);
+		else
+			ui.declareDraw();
+	}
+
+	private void switchPlayer() {
+		if(currPlayer == playerX)
+			currPlayer = playerO;
+		else
+			currPlayer = playerX;
+	}
+
+	public static void main(String[] args){
+		Game g = new Game();
+		g.runGame();
+	}
 }
-
