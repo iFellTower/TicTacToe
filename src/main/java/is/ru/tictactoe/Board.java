@@ -1,5 +1,7 @@
 package is.ru.tictactoe;
 
+import java.awt.Point;
+
 public class Board {
 
 
@@ -17,7 +19,13 @@ public class Board {
 
 	}
 
-	public boolean input(char input,int turn) {
+	public boolean insert(Point pos, int turn) {
+		if(pos.getX() < 0 || pos.getX() > 2){
+			throw new IndexOutOfBoundsException("Board: Index out of bounds: (" + pos.getX() + "," + pos.getY() + ") is illegal");
+		}
+		if(pos.getY() < 0 || pos.getY() > 2){
+			throw new IndexOutOfBoundsException("Board: Index out of bounds: (" + pos.getX() + "," + pos.getY() + ") is illegal");
+		}
 		return false;
 	}
 
