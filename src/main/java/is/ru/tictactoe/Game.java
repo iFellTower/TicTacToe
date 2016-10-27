@@ -35,8 +35,12 @@ public class Game {
         return false;
     }
 
+    public void insertIntoBoard(int input) {
+
+    }
+
     private Point convertToPoint(int input) {
-        Point point;
+        Point point = null;
         switch (input) {
             case 1:  point = new Point(0,0);
                      break;
@@ -58,16 +62,10 @@ public class Game {
                     break;
             default: // Will not run because of check in validInput.
                      break;
+                 }
  
             return point;
     }
 
-	public void insertIntoBoard(int input) {		
-
-
-	}
-
-	public static void main(String[] args) {
-    	get("/hello", (req, res) -> "Hello World");
-  	}
 }
+

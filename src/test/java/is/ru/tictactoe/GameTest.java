@@ -28,11 +28,6 @@ public class GameTest {
 	}
 	
 	
-	@Test
-	public void testInsertIntoBoard() {
-	
-
-	}
 
 
 
