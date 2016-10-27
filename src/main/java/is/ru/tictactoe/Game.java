@@ -31,7 +31,14 @@ public class Game {
 	}
 
 	public void checkInput() {
+		//throw new IllegalArgumentException("Game checkInput(): Invalid input");
+		do{
+			int input = 5;
 
+
+		}while(!validInput(input));
+		turn++;
+		Point point = new Point(1,1);
 
 	}
 
