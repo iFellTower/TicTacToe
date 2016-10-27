@@ -96,9 +96,22 @@ public class BoardTest {
 		// Check vertical winner
 		Board b1 = new Board();
 		for (int i = 0; i < 3; i++) {
-			b.insert(new Point(i, 0), 'X');
+			b1.insert(new Point(i, 0), 'X');
 		}
-		assertTrue("Board: Should return true", b.winner());
+		assertTrue("Board: Should return true", b1.winner());
+
+		// Check diagonal winner
+		Board b2 = new Board();
+		b2.insert(new Point(0, 0), 'X');
+		b2.insert(new Point(1, 1), 'X');
+		b2.insert(new Point(2, 2), 'X');
+		assertTrue("Board: Should return true", b1.winner());
+
+		Board b3 = new Board();
+		b3.insert(new Point(0, 0), 'X');
+		b3.insert(new Point(1, 1), 'X');
+		b3.insert(new Point(2, 2), 'X');
+		assertTrue("Board: Should return true", b1.winner());
 	}
 
 	@Test
