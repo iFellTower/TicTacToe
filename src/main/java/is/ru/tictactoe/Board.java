@@ -25,7 +25,7 @@ public class Board {
 		}
 	}
 
-	public void isFree(char input) {
-
+	public Boolean isFree(Point pos) {
+		return ((board[pos.x][pos.y] != 'X') && (board[pos.x][pos.y] != 'O'));
 	}
 }
