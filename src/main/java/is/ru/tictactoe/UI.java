@@ -1,11 +1,13 @@
 package is.ru.tictactoe;
-
+import java.util.Scanner;
 
 
 public class UI {
 
 	// Draws the current state of the board
-	public void drawBoard (Board board) {
+	public void drawBoard (Board b) {
+		char[][] board = b.getBoard();
+
 		System.out.println('\n');
         System.out.println(" " + board[0][0] + " | " + board[0][1] + " | " 
                 + board[0][2]);
