@@ -15,19 +15,35 @@ public class BoardTest {
 
 	//Tests on insert action
 	@Test
-	public void testInvalidInsertUpper() {
+	public void testInvalidInsertXOver() {
 		exception.expect(IndexOutOfBoundsException.class);
-		exception.expectMessage("Board: Index out of bounds: (4,4) is illegal");
+		exception.expectMessage("Board: Index out of bounds: (4,1) is illegal");
 		Board b = new Board();
-		b.insert(new Point(4,4), 'X');
+		b.insert(new Point(4,1), 'X');
 	}
 
 	@Test
-	public void testInvalidInsertLower() {
+	public void testInvalidInsertXUnder() {
 		exception.expect(IndexOutOfBoundsException.class);
-		exception.expectMessage("Board: Index out of bounds: (-1,-2) is illegal");
+		exception.expectMessage("Board: Index out of bounds: (-1,1) is illegal");
 		Board b = new Board();
-		b.insert(new Point(-1,-2), 'X');
+		b.insert(new Point(-1,1), 'X');
+	}
+
+	@Test
+	public void testInvalidInsertYOver() {
+		exception.expect(IndexOutOfBoundsException.class);
+		exception.expectMessage("Board: Index out of bounds: (1,4) is illegal");
+		Board b = new Board();
+		b.insert(new Point(1,4), 'X');
+	}
+
+	@Test
+	public void testInvalidInsertYUnder() {
+		exception.expect(IndexOutOfBoundsException.class);
+		exception.expectMessage("Board: Index out of bounds: (1,-1) is illegal");
+		Board b = new Board();
+		b.insert(new Point(1,-1), 'X');
 	}
 
 	@Test
