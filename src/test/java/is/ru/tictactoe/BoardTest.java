@@ -13,12 +13,22 @@ public class BoardTest {
 	@Rule
   	public final ExpectedException exception = ExpectedException.none();
 
+
+	//Tests on insert action
 	@Test
 	public void testInvalidInsertUpper() {
 		exception.expect(IndexOutOfBoundsException.class);
 		exception.expectMessage("Board: Index out of bounds: (4,4) is illegal");
 		Board b = new Board();
-		b.insert(new Point(4,4), 1);
+		b.insert(new Point(4,4), 'X');
+	}
+
+	@Test
+	public void testInvalidInsertLower() {
+		exception.expect(IndexOutOfBoundsException.class);
+		exception.expectMessage("Board: Index out of bounds: (-1,-2) is illegal");
+		Board b = new Board();
+		b.insert(new Point(-1,-2), 'X');
 	}
 
 	@Test
