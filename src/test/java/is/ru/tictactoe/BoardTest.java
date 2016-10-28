@@ -63,9 +63,15 @@ public class BoardTest {
 	@Test
 	public void testIsFreeFalse() {
 		Point pos = new Point(1,1);
-		Board b = new Board();
-		b.insert(pos, 'X');
-		assertFalse("Should return false", b.isFree(pos));
+		Board b1 = new Board();
+		b1.insert(pos, 'X');
+		assertFalse("Should return false", b1.isFree(pos));
+
+		Point pos = new Point(1,1);
+		Board b2 = new Board();
+		b2.insert(pos, 'O');
+		assertFalse("Should return false", b2.isFree(pos));
+
 	}
 
 	@Test
@@ -103,7 +109,7 @@ public class BoardTest {
 		Board b5 = new Board();
 		b5.insert(new Point(0, 1), 'X');
 		b5.insert(new Point(1, 1), 'X');
-		b5.insert(new Point(2, 1), 'O');
+		b5.insert(new Point(3, 1), 'O');
 		assertFalse("Board: Should return false", b5.winner());
 
 		// Check diagonal winner
