@@ -101,9 +101,9 @@ public class BoardTest {
 		assertTrue("Board: Should return true", b1.winner());
 
 		Board b5 = new Board();
+		b5.insert(new Point(0, 1), 'X');
 		b5.insert(new Point(1, 1), 'X');
-		b5.insert(new Point(2, 1), 'X');
-		b5.insert(new Point(3, 1), 'O');
+		b5.insert(new Point(2, 1), 'O');
 		assertFalse("Board: Should return false", b5.winner());
 
 		// Check diagonal winner
