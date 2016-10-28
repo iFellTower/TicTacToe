@@ -70,5 +70,25 @@ public class GameTest {
 
 	}
 
+	@Test
+	public void testIfDraw() {
+		Game game = new Game();
+		game.makeMove(1);
+		game.makeMove(3);
+		game.makeMove(2);
+		game.makeMove(4);
+		game.makeMove(6);
+		game.makeMove(5);
+		game.makeMove(7);
+		game.makeMove(9);
+		game.makeMove(8);
+
+		assertTrue("Should be a draw",game.getDraw());
+
+
+
+
+	}
+
 
 }

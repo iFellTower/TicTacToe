@@ -6,7 +6,7 @@ import java.awt.Point;
 public class Game {
 
 	private Board board;
-	private boolean winner;
+	private boolean winner,draw;
     private Player playerX;
     private Player playerO;
     private Player currPlayer;
@@ -14,6 +14,7 @@ public class Game {
 	public Game() {
 		 board = new Board();
 		 winner = false;
+         draw = false;
          playerX = new Player('X');
          playerO = new Player('O');
          currPlayer = playerO;
@@ -24,8 +25,8 @@ public class Game {
 
         switchPlayer();
         insertIntoBoard(input);
+        checkDraw();
         checkWinner();
-        
     }
 
 	public void drawScreen() {
@@ -81,14 +82,13 @@ public class Game {
     public Board getBoard() {
         return board;
     }
-    public char getCurrPlayerSymbol()
-    {
+    
+    public char getCurrPlayerSymbol() {
 
         return currPlayer.getSymbol();
     }
 
-    private void switchPlayer()
-    {
+    private void switchPlayer() {
         if(currPlayer == playerX)
             currPlayer = playerO;
         else
@@ -99,10 +99,18 @@ public class Game {
         return winner;
     }
     
-    private boolean checkWinner() {
+    private void checkWinner() {
         winner = board.winner();
-        return winner;
     }
+
+    public boolean getDraw() {
+        return draw;
+    }
+
+    private void checkDraw() {
+        draw = board.isFull();
+    }
+
 
 
 
