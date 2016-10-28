@@ -105,13 +105,13 @@ public class BoardTest {
 		b2.insert(new Point(0, 0), 'X');
 		b2.insert(new Point(1, 1), 'X');
 		b2.insert(new Point(2, 2), 'X');
-		assertTrue("Board: Should return true", b1.winner());
+		assertTrue("Board: Should return true", b2.winner());
 
 		Board b3 = new Board();
-		b3.insert(new Point(0, 0), 'X');
+		b3.insert(new Point(0, 2), 'X');
 		b3.insert(new Point(1, 1), 'X');
-		b3.insert(new Point(2, 2), 'X');
-		assertTrue("Board: Should return true", b1.winner());
+		b3.insert(new Point(2, 0), 'X');
+		assertTrue("Board: Should return true", b3.winner());
 	}
 
 	@Test
