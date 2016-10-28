@@ -14,8 +14,8 @@ public class UI {
 
 	// Helper function to print the menu
 	private void printMenu() {
-		System.out.println("Choose 1 to play Tic-Tac-Toe against another player");
-		System.out.println("Press 'Q' to exit the program");
+		System.out.println("Press '1' to play Tic-Tac-Toe against another player");
+		System.out.println("Press '0' to exit the program");
 	}
 
 	// Draws the current state of the board
