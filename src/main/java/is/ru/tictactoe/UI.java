@@ -34,13 +34,15 @@ public class UI {
 	}
 
 	// Reads input from StdIn 
-	private int getInput () {
+	public int getInput () {
 		Scanner s = new Scanner(System.in);
 		int input  = s.nextInt();
 
 		return input;
 	}
 
-	
+	public void printInvalidInput (int min, int max) {
+		System.out.println("Input should be between " + min + " and " + max + "!");
+	}
 }
 
