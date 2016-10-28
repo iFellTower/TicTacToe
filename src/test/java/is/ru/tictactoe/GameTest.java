@@ -16,12 +16,15 @@ public class GameTest {
 		Game game = new Game();
 		assertFalse("validInput should return false",game.validInput(-1));
 		assertTrue("validInput should return true",game.validInput(2));
+		game.makeMove(2);
+		assertFalse("validInput should return false",game.validInput(2));
+
 	}
 
 	@Test
-	public void testInsertIntoBoard() {
+	public void testInsert() {
 		Game game = new Game();
-		game.insertIntoBoard(5);
+		game.makeMove(5);
 
 		Board board = new Board();
 		board = game.getBoard();
@@ -32,20 +35,40 @@ public class GameTest {
 	@Test
 	public void testSwitchPlayer() {
 		Game game = new Game();
-		game.makeMove();
-		assertEquals('O',game.getCurrPlayerSymbol());
-		game.makeMove();
+		game.makeMove(5);
 		assertEquals('X',game.getCurrPlayerSymbol());
+		game.makeMove(3);
+		assertEquals('O',game.getCurrPlayerSymbol());
 	}
 
-
-	/*@Test
-	public void testRunGame() {
+	@Test
+	public void testWinnerTrue() {
 		Game game = new Game();
-		game.runGame()
-		assertEquals(1, game.getTurn())
-	}*/
 
+		game.makeMove(1);
+		game.makeMove(4);
+		game.makeMove(2);
+		game.makeMove(5);
+		game.makeMove(3);
+
+		assertTrue("Winner should be true",game.getWinner());
+
+	}
+
+	@Test
+	public void testWinnerFalse() {
+		Game game = new Game();
+
+		game.makeMove(4);
+		game.makeMove(5);
+		game.makeMove(6);
+		game.makeMove(7);
+		game.makeMove(8);
+		game.makeMove(9);
+
+		assertFalse("Winner should be false",game.getWinner());
+
+	}
 
 
 }

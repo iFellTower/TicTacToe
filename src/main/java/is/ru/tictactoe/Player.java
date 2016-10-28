@@ -22,7 +22,4 @@ public class Player {
 		score++;
 	}
 
-	public int whatIsTheMeaningOfLife() {
-		return 42;
-	}
 }

@@ -1,5 +1,5 @@
 package is.ru.tictactoe;
-import static spark.Spark.*;
+
 
 import java.awt.Point;
 
@@ -16,11 +16,16 @@ public class Game {
 		 winner = false;
          playerX = new Player('X');
          playerO = new Player('O');
-         currPlayer = playerX;
+         currPlayer = playerO;
 	}
 
-	public void makeMove() {
+
+	public void makeMove(int input) {
+
         switchPlayer();
+        insertIntoBoard(input);
+        checkWinner();
+        
     }
 
 	public void drawScreen() {
@@ -39,7 +44,7 @@ public class Game {
         return false;
     }
 
-    public void insertIntoBoard(int input) {
+    private void insertIntoBoard(int input) {
         Point point = convertToPoint(input);
         board.insert(point,currPlayer.getSymbol());
 
@@ -89,6 +94,18 @@ public class Game {
         else
             currPlayer = playerX;
     }
+
+    public boolean getWinner() {
+        return winner;
+    }
+    
+    private boolean checkWinner() {
+        winner = board.winner();
+        return winner;
+    }
+
+
+
 
 }
 
