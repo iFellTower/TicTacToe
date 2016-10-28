@@ -95,6 +95,18 @@ public class Game {
         return currPlayer.getSymbol();
     }
 
+	public Player getCurrPlayer() {
+		return currPlayer;
+	}
+
+	public Player getPlayerX() {
+		return playerX;
+	}
+
+	public Player getPlayerO() {
+		return playerO;
+	}
+
     private void switchPlayer() {
         if(currPlayer == playerX)
             currPlayer = playerO;
