@@ -62,15 +62,15 @@ public class BoardTest {
 
 	@Test
 	public void testIsFreeFalse() {
-		Point pos = new Point(1,1);
+		Point pos1 = new Point(1,1);
 		Board b1 = new Board();
-		b1.insert(pos, 'X');
-		assertFalse("Should return false", b1.isFree(pos));
+		b1.insert(pos1, 'X');
+		assertFalse("Should return false", b1.isFree(pos1));
 
-		Point pos = new Point(1,1);
+		Point pos2 = new Point(1,1);
 		Board b2 = new Board();
-		b2.insert(pos, 'O');
-		assertFalse("Should return false", b2.isFree(pos));
+		b2.insert(pos2, 'O');
+		assertFalse("Should return false", b2.isFree(pos2));
 
 	}
 
