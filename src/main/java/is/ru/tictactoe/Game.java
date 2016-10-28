@@ -6,17 +6,17 @@ import java.awt.Point;
 public class Game {
 
 	private Board board;
-	private int turn;
 	private boolean winner;
     private Player playerX;
     private Player playerO;
+    private Player currPlayer;
 
 	public Game() {
 		 board = new Board();
-		 turn = 0;
 		 winner = false;
          playerX = new Player('X');
          playerO = new Player('O');
+         currPlayer = playerX;
 	}
 
 	public void runGame() {
@@ -41,14 +41,8 @@ public class Game {
 
     public void insertIntoBoard(int input) {
         Point point = convertToPoint(input);
+        board.insert(point,currPlayer.getSymbol());
 
-        if(turn % 2 == 0) {
-            board.insert(point, playerX.getSymbol());
-        }
-        else
-            board.insert(point, playerO.getSymbol());
-
-        turn++;
     }
 
     private Point convertToPoint(int input) {
@@ -79,8 +73,9 @@ public class Game {
             return point;
     }
 
-    public int getTurn() {
-        return turn;
+    public Board getBoard() {
+        return board;
     }
+
 }
 

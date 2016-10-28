@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class UI {
 
+
+	
+
 	// Draws the current state of the board
 	public void drawBoard (Board b) {
 		char[][] board = b.getBoard();
