@@ -40,5 +40,9 @@ public class UI {
 
 		return input;
 	}
+
+	public void printInvalidInput (int min, int max) {
+		System.out.println("Input should be between " + min + " and " + max + "!");
+	}
 }
 
