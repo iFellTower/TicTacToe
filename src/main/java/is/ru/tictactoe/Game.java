@@ -16,15 +16,16 @@ public class Game {
 		 winner = false;
          playerX = new Player('X');
          playerO = new Player('O');
-         currPlayer = playerX;
+         currPlayer = playerO;
 	}
 
 
 	public void makeMove(int input) {
 
+        switchPlayer();
         insertIntoBoard(input);
         checkWinner();
-        switchPlayer();
+        
     }
 
 	public void drawScreen() {
