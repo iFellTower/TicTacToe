@@ -34,7 +34,7 @@ public class UI {
 	}
 
 	// Reads input from StdIn 
-	public int getInput () {
+	private int getInput () {
 		Scanner s = new Scanner(System.in);
 		int input  = s.nextInt();
 
