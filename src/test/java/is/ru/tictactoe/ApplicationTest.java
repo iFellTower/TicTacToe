@@ -9,8 +9,7 @@ import static org.junit.Assert.*;
 import java.awt.Point;
 
 
-public class ApplicationTest()
-{
+public class ApplicationTest {
 
 	@Test
 	public void testApplicationRun() {

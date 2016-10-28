@@ -40,9 +40,15 @@ public class GameTest {
 
 	@Test
 	public void testWinner() {
+		Game game = new Game();
 
-		
+		game.makeMove(1);
+		game.makeMove(4);
+		game.makeMove(2);
+		game.makeMove(5);
+		game.makeMove(3);
 
+		assertTrue("Winner should be true",game.getWinner());
 
 	}
 

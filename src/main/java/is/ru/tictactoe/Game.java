@@ -23,6 +23,7 @@ public class Game {
 	public void makeMove(int input) {
 
         insertIntoBoard(input);
+        checkWinner();
         switchPlayer();
     }
 
@@ -93,10 +94,17 @@ public class Game {
             currPlayer = playerX;
     }
 
+    public boolean getWinner() {
+        return winner;
+    }
+    
     private boolean checkWinner() {
         winner = board.winner();
         return winner;
     }
+
+
+
 
 }
 
