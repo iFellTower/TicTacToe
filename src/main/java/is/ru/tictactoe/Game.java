@@ -10,7 +10,6 @@ public class Game {
     private Player playerX;
     private Player playerO;
     private Player currPlayer;
-    private static UI ui;
 
 	public Game() {
 		 board = new Board();
@@ -18,7 +17,6 @@ public class Game {
          playerX = new Player('X');
          playerO = new Player('O');
          currPlayer = playerX;
-         ui = new UI();
 	}
 
 	public void makeMove() {
@@ -90,8 +88,6 @@ public class Game {
             currPlayer = playerO;
         else
             currPlayer = playerX;
-
-
     }
 
 }

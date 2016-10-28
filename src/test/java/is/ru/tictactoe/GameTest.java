@@ -33,9 +33,9 @@ public class GameTest {
 	public void testSwitchPlayer() {
 		Game game = new Game();
 		game.makeMove();
-
 		assertEquals('O',game.getCurrPlayerSymbol());
-
+		game.makeMove();
+		assertEquals('X',game.getCurrPlayerSymbol());
 	}
 
 
