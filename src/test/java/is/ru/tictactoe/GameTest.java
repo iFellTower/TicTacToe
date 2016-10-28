@@ -29,6 +29,15 @@ public class GameTest {
 		assertEquals(false,board.isFree(new Point(1,1)));
 	}
 
+	@Test
+	public void testSwitchPlayer() {
+		Game game = new Game();
+		game.makeMove();
+
+		assertEquals('O',game.getCurrPlayerSymbol());
+
+	}
+
 
 	/*@Test
 	public void testRunGame() {
