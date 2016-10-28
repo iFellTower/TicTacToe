@@ -14,9 +14,9 @@ public class UITest {
 	public void testDrawBoard() {
 
 	}
-
+	/*
 	@Test
 	public void testGetInput() {
 
-	}
+	}*/
 }
