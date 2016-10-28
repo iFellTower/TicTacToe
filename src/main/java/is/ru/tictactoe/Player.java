@@ -10,7 +10,7 @@ public class Player {
 		symbol = s;
 	}
 
-	public char getChar() {
+	public char getSymbol() {
 		return symbol;
 	}
 
@@ -22,7 +22,4 @@ public class Player {
 		score++;
 	}
 
-	public int whatIsTheMeaningOfLife() {
-		return 42;
-	}
 }

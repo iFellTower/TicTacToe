@@ -1,23 +1,32 @@
 package is.ru.tictactoe;
-import static spark.Spark.*;
+
 
 import java.awt.Point;
 
 public class Game {
 
 	private Board board;
-	private int turn;
 	private boolean winner;
+    private Player playerX;
+    private Player playerO;
+    private Player currPlayer;
 
 	public Game() {
 		 board = new Board();
-		 turn = 0;
 		 winner = false;
+         playerX = new Player('X');
+         playerO = new Player('O');
+         currPlayer = playerO;
 	}
 
-	public void runGame() {
 
-	}
+	public void makeMove(int input) {
+
+        switchPlayer();
+        insertIntoBoard(input);
+        checkWinner();
+        
+    }
 
 	public void drawScreen() {
 
@@ -35,7 +44,9 @@ public class Game {
         return false;
     }
 
-    public void insertIntoBoard(int input) {
+    private void insertIntoBoard(int input) {
+        Point point = convertToPoint(input);
+        board.insert(point,currPlayer.getSymbol());
 
     }
 
@@ -66,6 +77,35 @@ public class Game {
  
             return point;
     }
+
+    public Board getBoard() {
+        return board;
+    }
+    public char getCurrPlayerSymbol()
+    {
+
+        return currPlayer.getSymbol();
+    }
+
+    private void switchPlayer()
+    {
+        if(currPlayer == playerX)
+            currPlayer = playerO;
+        else
+            currPlayer = playerX;
+    }
+
+    public boolean getWinner() {
+        return winner;
+    }
+    
+    private boolean checkWinner() {
+        winner = board.winner();
+        return winner;
+    }
+
+
+
 
 }
 

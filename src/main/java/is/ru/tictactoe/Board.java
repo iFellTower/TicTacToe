@@ -4,6 +4,7 @@ import java.awt.Point;
 
 public class Board {
 
+	private static final int size = 3;
 	private char[][] board;
 
 	public Board(){
@@ -44,5 +45,41 @@ public class Board {
 
 	public char[][] getBoard() {
 		return board;
+	}
+
+	public boolean winner() {
+		return checkWinner();
+	}
+
+	private boolean checkWinner() {
+		// Check horizontal and vertical winner
+		for (int i = 0; i < size; i++) {
+			if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
+				return true;
+			if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
+				return true;
+		}
+
+		// Check diagonal winner
+		if (board[0][0] == board[1][1] && board[1][1] == board[2][2])
+			return true;
+		if (board[0][2] == board[1][1] && board[1][1] == board[2][0])
+			return true;
+
+		return false;
+	}
+
+	public boolean isFull() {
+		return checkIsFull();
+	}
+
+	private boolean checkIsFull() {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (board[i][j] != 'X' && board[i][j] != 'O')
+					return false;
+			}
+		}
+		return true;
 	}
 }

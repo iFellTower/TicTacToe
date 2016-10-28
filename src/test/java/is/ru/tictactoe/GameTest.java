@@ -1,31 +1,74 @@
 package is.ru.tictactoe;
 
-import static org.junit.Assert.assertEquals;
+
 
 import org.junit.Test;
 import org.junit.Rule;
-import org.junit.rules.ExpectedException;
+import static org.junit.Assert.*;
+
 import java.awt.Point;
 
 
 public class GameTest {
 
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
-
-
 	@Test
-	public void checkValidInput() {
+	public void testValidInput() {
 		Game game = new Game();
-		assertEquals(false,game.validInput(-1));
-		assertEquals(true,game.validInput(2));
-		assertEquals(true,game.validInput(3));
-		assertEquals(true,game.validInput(9));
+		assertFalse("validInput should return false",game.validInput(-1));
+		assertTrue("validInput should return true",game.validInput(2));
+		game.makeMove(2);
+		assertFalse("validInput should return false",game.validInput(2));
+
 	}
 
-	
+	@Test
+	public void testInsert() {
+		Game game = new Game();
+		game.makeMove(5);
 
+		Board board = new Board();
+		board = game.getBoard();
 
+		assertEquals(false,board.isFree(new Point(1,1)));
+	}
+
+	@Test
+	public void testSwitchPlayer() {
+		Game game = new Game();
+		game.makeMove(5);
+		assertEquals('X',game.getCurrPlayerSymbol());
+		game.makeMove(3);
+		assertEquals('O',game.getCurrPlayerSymbol());
+	}
+
+	@Test
+	public void testWinnerTrue() {
+		Game game = new Game();
+
+		game.makeMove(1);
+		game.makeMove(4);
+		game.makeMove(2);
+		game.makeMove(5);
+		game.makeMove(3);
+
+		assertTrue("Winner should be true",game.getWinner());
+
+	}
+
+	@Test
+	public void testWinnerFalse() {
+		Game game = new Game();
+
+		game.makeMove(4);
+		game.makeMove(5);
+		game.makeMove(6);
+		game.makeMove(7);
+		game.makeMove(8);
+		game.makeMove(9);
+
+		assertFalse("Winner should be false",game.getWinner());
+
+	}
 
 
 }
