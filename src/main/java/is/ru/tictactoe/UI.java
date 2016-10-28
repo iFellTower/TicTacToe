@@ -4,6 +4,20 @@ import java.util.Scanner;
 
 public class UI {
 
+	// Prints the menu and prompts the user to input his selection
+	public int getChoice () {
+		printMenu();
+		int choice = getInput();
+
+		return choice;
+	}
+
+	// Helper function to print the menu
+	private void printMenu() {
+		System.out.println("Press '1' to play Tic-Tac-Toe against another player");
+		System.out.println("Press '0' to exit the program");
+	}
+
 	// Draws the current state of the board
 	public void drawBoard (Board b) {
 		char[][] board = b.getBoard();
@@ -19,8 +33,8 @@ public class UI {
                 + board[2][2]);
 	}
 
-	// Reads input from StdIn and sends it forward
-	public int getInput () {
+	// Reads input from StdIn 
+	private int getInput () {
 		Scanner s = new Scanner(System.in);
 		int input  = s.nextInt();
 

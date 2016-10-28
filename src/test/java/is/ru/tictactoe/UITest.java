@@ -11,11 +11,6 @@ import java.awt.Point;
 public class UITest {
 
 	@Test
-	public void testDrawBoard() {
-
-	}
-
-	@Test
 	public void testGetInput() {
 
 	}
