@@ -117,7 +117,7 @@ public class BoardTest {
 		b4.insert(new Point(0, 0), 'X');
 		b4.insert(new Point(1, 1), 'X');
 		b4.insert(new Point(2, 2), 'O');
-		assertTrue("Board: Should return false", b4.winner());
+		assertFalse("Board: Should return false", b4.winner());
 	}
 
 	@Test
