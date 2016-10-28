@@ -12,7 +12,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
 
-mainClassName = "is.ru.tictactoe.Game"
+mainClassName = "is.ru.tictactoe.Application"
 
 // In this section you declare where to find the dependencies of your project
 repositories {
