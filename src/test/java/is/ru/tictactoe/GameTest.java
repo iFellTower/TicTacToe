@@ -19,9 +19,9 @@ public class GameTest {
 	}
 
 	@Test
-	public void testInsertIntoBoard() {
+	public void testInsert() {
 		Game game = new Game();
-		game.insertIntoBoard(5);
+		game.makeMove(5);
 
 		Board board = new Board();
 		board = game.getBoard();
@@ -32,20 +32,19 @@ public class GameTest {
 	@Test
 	public void testSwitchPlayer() {
 		Game game = new Game();
-		game.makeMove();
+		game.makeMove(5);
 		assertEquals('O',game.getCurrPlayerSymbol());
-		game.makeMove();
+		game.makeMove(3);
 		assertEquals('X',game.getCurrPlayerSymbol());
 	}
 
+	@Test
+	public void testWinner() {
 
-	/*@Test
-	public void testRunGame() {
-		Game game = new Game();
-		game.runGame()
-		assertEquals(1, game.getTurn())
-	}*/
+		
 
+
+	}
 
 
 }
