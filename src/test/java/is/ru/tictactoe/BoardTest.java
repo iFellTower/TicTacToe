@@ -75,17 +75,13 @@ public class BoardTest {
 	}
 
 	@Test
-	public void testGetBoard() {
-		char[][] testBoard = new char[3][3];
-		char num = '1';
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
-				testBoard[i][j] = num;
-				num++;
-			}
-		}
-		Board b = new Board();
-		assertArrayEquals(testBoard, b.getBoard());
+	public void testGetAt() {
+		Board board = new Board();
+		assertEquals('1', board.getAt(new Point(0, 0)));
+		assertEquals('2', board.getAt(new Point(0, 1)));
+		assertEquals('3', board.getAt(new Point(0, 2)));
+		assertEquals('4', board.getAt(new Point(1, 0)));
+		assertEquals('5', board.getAt(new Point(1, 1)));
 	}
 
 	@Test
