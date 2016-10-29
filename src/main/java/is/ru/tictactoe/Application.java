@@ -18,6 +18,7 @@ public class Application {
 			}
 			else {
 				playGame();
+				ui.drawBoard(game.getBoard());
 				if (game.getWinner()) {
 					game.switchPlayer();
 					(game.getCurrPlayer()).incrementScore();
@@ -49,11 +50,15 @@ public class Application {
 		while (!game.getWinner() && !game.getDraw()) {
 			ui.drawBoard(game.getBoard());
 			int input;
-			boolean validInput;
+			boolean validInput, isFree;
 			do{
 				input = ui.getNextMove(game.getCurrPlayer());
 				validInput = game.validInput(input);
-				if (!validInput) {
+				isFree = game.getBoard().isFree(game.convertToPoint(input));
+				if(!isFree) {
+					ui.printFieldTaken();
+				}
+				else if (!validInput) {
 					ui.printInvalidInput(1, 9);
 				}
 			} while (!validInput);
