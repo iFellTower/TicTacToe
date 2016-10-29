@@ -34,7 +34,7 @@ public class UI {
 	}
 
 	// Reads input from StdIn
-	public int getInput () {
+	private int getInput () {
 		Scanner s = new Scanner(System.in);
 		int input  = s.nextInt();
 
@@ -60,5 +60,18 @@ public class UI {
 	// Prints an error msg if the input is invalid
 	public void printInvalidInput (int min, int max) {
 		System.out.println("Input should be between " + min + " and " + max + "!");
+	}
+
+	// Prints an error msg if the input field is already taken
+	public void printFieldTaken () {
+		System.out.println("That field is already taken, please choose another one");
+	}
+
+	// Prints out who's turn it is and prompts that user to make a move
+	public int getNextMove (Player player) {
+			System.out.println("Player " + player.getSymbol() + ", input your next move: ");
+			int move = getInput();
+
+			return move;
 	}
 }
