@@ -19,6 +19,7 @@ public class Application {
 			else {
 				playGame();
 				if (game.getWinner()) {
+					(game.getCurrPlayer()).incrementScore();
 					ui.printWinner(game.getCurrPlayer());
 				}
 				else if (game.getDraw()) {
