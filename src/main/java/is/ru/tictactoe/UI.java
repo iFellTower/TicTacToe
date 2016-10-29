@@ -69,7 +69,8 @@ public class UI {
 
 	// Prints out who's turn it is and prompts that user to make a move
 	public int getNextMove (Player player) {
-			System.out.println("Player " + player.getSymbol() + ", input your next move: ");
+			System.out.println('\n');
+			System.out.print("Player " + player.getSymbol() + ", input your next move: ");
 			int move = getInput();
 
 			return move;
