@@ -3,42 +3,73 @@ package is.ru.tictactoe;
 import java.awt.Point;
 
 public class Application {
-
-
 	private Game game;
 	private UI ui;
 
-	public Application(Game game, UI ui) {
+	public Application (Game game, UI ui) {
 		this.game = game;
 		this.ui = ui;
-
 	}
 
-	public void playGame() {
+	public void runApp () {
+		while (true) {
+			if (quitApp(getMenuChoice())) {
+				break;
+			}
+			else {
+				playGame();
+				if (game.getWinner()) {
+					ui.printWinner(game.getCurrPlayer());
+				}
+				else if (game.getDraw()) {
+					ui.printDraw();
+				}
+				ui.printScore(game.getPlayerO(), game.getPlayerX());
+			}
+		}
+	}
 
-		while(!game.getWinner()) {
+	private int getMenuChoice () {
+		int choice;
+		boolean validChoice;
+		do {
+			choice = ui.getChoice();
+			validChoice = game.validMenuInput(choice);
+			if (!validChoice) {
+				ui.printInvalidInput(0, 1);
+			}
+		} while(!validChoice);
+		return choice;
+	}
+
+	private void playGame () {
+		while (!game.getWinner() && !game.getDraw()) {
+			ui.drawBoard(game.getBoard());
 			int input;
+			boolean validInput;
 			do{
 				input = ui.getInput();
-			}while(!game.validInput(input));
+				validInput = game.validInput(input);
+				if (!validInput) {
+					ui.printInvalidInput(1, 9);
+				}
+			} while (!validInput);
 
 			game.makeMove(input);
 		}
 
 	}
 
+	private boolean quitApp (int choice) {
+		return (choice == 0);
+	}
 
-	public static void main(String[] args) {
 
+	public static void main (String[] args) {
 		Game game = new Game();
 		UI ui = new UI();
-
 		Application app = new Application(game,ui);
 
-		app.playGame();
-
-
-
-
+		app.runApp();
 	}
 }
