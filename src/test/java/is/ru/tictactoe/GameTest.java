@@ -153,4 +153,12 @@ public class GameTest {
 		assertFalse("Should return False", game.getDraw());
 		assertEquals('X', game.getPlayerX().getSymbol());
 	}
+
+	@Test
+	public void testConvertToPointDefaultCase() {
+		Game game = new Game();
+
+		assertEquals(null, game.convertToPoint(10));
+	}
+
 }

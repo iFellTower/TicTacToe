@@ -57,7 +57,7 @@ public class Game {
         board.insert(point,currPlayer.getSymbol());
     }
 
-    private Point convertToPoint(int input) {
+    public Point convertToPoint(int input) {
         Point point = null;
         switch (input) {
             case 1:  point = new Point(0,0);
