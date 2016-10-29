@@ -15,7 +15,10 @@ public class GameTest {
 	public void testValidInput() {
 		Game game = new Game();
 		assertFalse("validInput should return false",game.validInput(-1));
+		assertFalse("validInput should return false",game.validInput(10));
 		assertTrue("validInput should return true",game.validInput(2));
+		assertTrue("validInput should return true",game.validInput(1));
+		assertTrue("validInput should return true",game.validInput(9));
 		game.makeMove(2);
 		assertFalse("validInput should return false",game.validInput(2));
 
@@ -97,7 +100,9 @@ public class GameTest {
 	public void testValidMenuInput() {
 		Game game = new Game();
 		assertTrue("validMenuInput should return true", game.validMenuInput(0));
+		assertTrue("validMenuInput should return true", game.validMenuInput(1));
 		assertFalse("validMenuInput should return false", game.validMenuInput(2));
+		assertFalse("validMenuInput should return false", game.validMenuInput(-1));
 	}
 
 	@Test

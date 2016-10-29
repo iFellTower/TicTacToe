@@ -106,23 +106,17 @@ public class BoardTest {
 		}
 		assertTrue("Board: Should return true", b1.winner());
 
-		Board b5 = new Board();
-		b5.insert(new Point(0, 1), 'X');
-		b5.insert(new Point(1, 1), 'X');
-		b5.insert(new Point(2, 1), 'O');
-		assertFalse("Board: Should return false", b5.winner());
+		Board b2 = new Board();
+		b2.insert(new Point(0, 1), 'X');
+		b2.insert(new Point(1, 1), 'X');
+		b2.insert(new Point(2, 1), 'O');
+		assertFalse("Board: Should return false", b2.winner());
 
 		// Check diagonal winner
-		Board b2 = new Board();
-		b2.insert(new Point(0, 0), 'X');
-		b2.insert(new Point(1, 1), 'X');
-		b2.insert(new Point(2, 2), 'X');
-		assertTrue("Board: Should return true", b2.winner());
-
 		Board b3 = new Board();
-		b3.insert(new Point(0, 2), 'X');
+		b3.insert(new Point(0, 0), 'X');
 		b3.insert(new Point(1, 1), 'X');
-		b3.insert(new Point(2, 0), 'X');
+		b3.insert(new Point(2, 2), 'X');
 		assertTrue("Board: Should return true", b3.winner());
 
 		Board b4 = new Board();
@@ -130,6 +124,30 @@ public class BoardTest {
 		b4.insert(new Point(1, 1), 'X');
 		b4.insert(new Point(2, 2), 'O');
 		assertFalse("Board: Should return false", b4.winner());
+
+		Board b5 = new Board();
+		b5.insert(new Point(0, 0), 'O');
+		b5.insert(new Point(1, 1), 'X');
+		b5.insert(new Point(2, 2), 'X');
+		assertFalse("Board: Should return false", b5.winner());
+
+		Board b6 = new Board();
+		b6.insert(new Point(0, 2), 'X');
+		b6.insert(new Point(1, 1), 'X');
+		b6.insert(new Point(2, 0), 'X');
+		assertTrue("Board: Should return true", b6.winner());
+
+		Board b7 = new Board();
+		b7.insert(new Point(0, 2), 'X');
+		b7.insert(new Point(1, 1), 'X');
+		b7.insert(new Point(2, 0), 'O');
+		assertFalse("Board: Should return false", b7.winner());
+
+		Board b8 = new Board();
+		b8.insert(new Point(0, 2), 'O');
+		b8.insert(new Point(1, 1), 'X');
+		b8.insert(new Point(2, 0), 'X');
+		assertFalse("Board: Should return false", b8.winner());
 	}
 
 	@Test
