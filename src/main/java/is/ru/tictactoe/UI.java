@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class UI {
 
 	// Prints the menu and prompts the user to input his selection
-	public int getChoice () {
+	public String getChoice () {
 		printMenu();
-		int choice = getInput();
+		String choice = getInput();
 
 		return choice;
 	}
@@ -34,9 +34,9 @@ public class UI {
 	}
 
 	// Reads input from StdIn
-	private int getInput () {
+	private String getInput () {
 		Scanner s = new Scanner(System.in);
-		int input  = s.nextInt();
+		String input  = s.nextLine();
 
 		return input;
 	}
@@ -75,10 +75,10 @@ public class UI {
 	}
 
 	// Prints out who's turn it is and prompts that user to make a move
-	public int getNextMove (Player player) {
+	public String getNextMove (Player player) {
 			System.out.println('\n');
 			System.out.print("Player " + player.getSymbol() + ", input your next move: ");
-			int move = getInput();
+			String move = getInput();
 
 			return move;
 	}
