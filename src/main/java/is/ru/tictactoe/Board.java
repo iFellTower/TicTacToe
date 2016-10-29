@@ -12,6 +12,10 @@ public class Board {
 		fillBoard();
 	}
 
+	public void clearBoard() {
+		fillBoard();
+	}
+
 	private void fillBoard() {
 		char num = '1';
 		for(int i = 0; i < 3; i++) {

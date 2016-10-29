@@ -122,4 +122,35 @@ public class GameTest {
 		Player player = new Player('O');
 		assertEquals(player.getSymbol(), game.getPlayerO().getSymbol());
 	}
+
+	@Test
+	public void testNewGame() {
+		Game game = new Game();
+
+		char[][] testBoard = new char[3][3];
+		char num = '1';
+		for(int i = 0; i < 3; i++) {
+			for(int j = 0; j < 3; j++) {
+				testBoard[i][j] = num;
+				num++;
+			}
+		}
+
+		game.makeMove(1);
+		game.switchPlayer();
+		game.makeMove(4);
+		game.switchPlayer();
+		game.makeMove(2);
+		game.switchPlayer();
+		game.makeMove(5);
+		game.switchPlayer();
+		game.makeMove(3);
+		game.switchPlayer();
+
+		game.newGame();
+		assertArrayEquals(testBoard, game.getBoard().getBoard());
+		assertFalse("Should return False", game.getWinner());
+		assertFalse("Should return False", game.getDraw());
+		assertEquals('X', game.getPlayerX().getSymbol());
+	}
 }

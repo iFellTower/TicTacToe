@@ -20,9 +20,14 @@ public class Game {
          currPlayer = playerX;
 	}
 
+	public void newGame() {
+		board.clearBoard();
+		winner = false;
+		draw = false;
+		currPlayer = playerX;
+	}
 
 	public void makeMove(int input) {
-
         insertIntoBoard(input);
         checkDraw();
         checkWinner();
@@ -50,7 +55,6 @@ public class Game {
     private void insertIntoBoard(int input) {
         Point point = convertToPoint(input);
         board.insert(point,currPlayer.getSymbol());
-
     }
 
     private Point convertToPoint(int input) {
@@ -76,9 +80,8 @@ public class Game {
                     break;
             default: // Will not run because of check in validInput.
                      break;
-                 }
-
-            return point;
+        }
+        return point;
     }
 
     public Board getBoard() {
@@ -124,9 +127,4 @@ public class Game {
     private void checkDraw() {
         draw = board.isFull();
     }
-
-
-
-
-
 }
