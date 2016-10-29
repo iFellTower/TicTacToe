@@ -27,3 +27,4 @@ parsers:
 ignore:
   - "src/main/java/is/ru/tictactoe/UI.java"
   - "src/main/java/is/ru/tictactoe/Application.java"
+  - "src/main/java/is/ru/tictactoe/RunGame.java"

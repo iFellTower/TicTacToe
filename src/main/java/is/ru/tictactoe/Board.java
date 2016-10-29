@@ -47,8 +47,8 @@ public class Board {
 		return ((board[pos.x][pos.y] != 'X') && (board[pos.x][pos.y] != 'O'));
 	}
 
-	public char[][] getBoard() {
-		return board;
+	public char getAt(Point pos) {
+		return board[pos.x][pos.y];
 	}
 
 	public boolean winner() {

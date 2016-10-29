@@ -39,9 +39,9 @@ public class GameTest {
 	public void testSwitchPlayer() {
 		Game game = new Game();
 		game.switchPlayer();
-		assertEquals('O',game.getCurrPlayerSymbol());
+		assertEquals('O',game.getCurrPlayer().getSymbol());
 		game.switchPlayer();
-		assertEquals('X',game.getCurrPlayerSymbol());
+		assertEquals('X',game.getCurrPlayer().getSymbol());
 	}
 
 	@Test
@@ -132,15 +132,6 @@ public class GameTest {
 	public void testNewGame() {
 		Game game = new Game();
 
-		char[][] testBoard = new char[3][3];
-		char num = '1';
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
-				testBoard[i][j] = num;
-				num++;
-			}
-		}
-
 		game.makeMove(1);
 		game.switchPlayer();
 		game.makeMove(4);
@@ -153,7 +144,11 @@ public class GameTest {
 		game.switchPlayer();
 
 		game.newGame();
-		assertArrayEquals(testBoard, game.getBoard().getBoard());
+		assertEquals('1', game.getBoard().getAt(new Point(0, 0)));
+		assertEquals('2', game.getBoard().getAt(new Point(0, 1)));
+		assertEquals('3', game.getBoard().getAt(new Point(0, 2)));
+		assertEquals('4', game.getBoard().getAt(new Point(1, 0)));
+		assertEquals('5', game.getBoard().getAt(new Point(1, 1)));
 		assertFalse("Should return False", game.getWinner());
 		assertFalse("Should return False", game.getDraw());
 		assertEquals('X', game.getPlayerX().getSymbol());

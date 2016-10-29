@@ -80,13 +80,4 @@ public class Application {
 	private boolean quitApp (int choice) {
 		return (choice == 0);
 	}
-
-
-	public static void main (String[] args) {
-		Game game = new Game();
-		UI ui = new UI();
-		Application app = new Application(game,ui);
-
-		app.runApp();
-	}
 }
