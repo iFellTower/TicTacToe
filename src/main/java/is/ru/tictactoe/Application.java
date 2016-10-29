@@ -45,6 +45,7 @@ public class Application {
 	}
 
 	private void playGame () {
+		game.newGame();
 		while (!game.getWinner() && !game.getDraw()) {
 			ui.drawBoard(game.getBoard());
 			int input;
