@@ -102,6 +102,7 @@ public class GameTest {
 		assertTrue("validMenuInput should return true", game.validMenuInput(0));
 		assertTrue("validMenuInput should return true", game.validMenuInput(1));
 		assertFalse("validMenuInput should return false", game.validMenuInput(2));
+		assertFalse("validMenuInput should return false", game.validMenuInput(-1));
 	}
 
 	@Test
