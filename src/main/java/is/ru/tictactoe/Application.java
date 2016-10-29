@@ -18,6 +18,7 @@ public class Application {
 			}
 			else {
 				playGame();
+				ui.drawBoard(game.getBoard());
 				if (game.getWinner()) {
 					game.switchPlayer();
 					(game.getCurrPlayer()).incrementScore();
@@ -32,35 +33,50 @@ public class Application {
 	}
 
 	private int getMenuChoice () {
-		int choice;
+		String choice;
 		boolean validChoice;
+		int num;
 		do {
 			choice = ui.getChoice();
-			validChoice = game.validMenuInput(choice);
+			num = convertStringToInt(choice);
+			validChoice = game.validMenuInput(num);
 			if (!validChoice) {
 				ui.printInvalidInput(0, 1);
 			}
 		} while(!validChoice);
-		return choice;
+		return num;
 	}
 
 	private void playGame () {
 		game.newGame();
 		while (!game.getWinner() && !game.getDraw()) {
 			ui.drawBoard(game.getBoard());
-			int input;
-			boolean validInput;
+			String input;
+			boolean validInput, isFree;
+			int num;
 			do{
 				input = ui.getNextMove(game.getCurrPlayer());
-				validInput = game.validInput(input);
-				if (!validInput) {
+				num = convertStringToInt(input);
+				validInput = game.validInput(num);
+				if (validInput) {
+					isFree = game.getBoard().isFree(game.convertToPoint(num));
+					if(!isFree) {
+						ui.printFieldTaken();
+					}
+				}
+				else {
 					ui.printInvalidInput(1, 9);
 				}
 			} while (!validInput);
-			game.makeMove(input);
+			game.makeMove(num);
 			game.switchPlayer();
 		}
 	}
+
+	private int convertStringToInt(String str) {
+		return Character.getNumericValue(str.charAt(0));
+	}
+
 	private boolean quitApp (int choice) {
 		return (choice == 0);
 	}
