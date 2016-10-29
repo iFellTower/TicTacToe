@@ -52,7 +52,6 @@ public class GameTest {
 		game.makeMove(3);
 
 		assertTrue("Winner should be true",game.getWinner());
-
 	}
 
 	@Test
@@ -67,7 +66,6 @@ public class GameTest {
 		game.makeMove(9);
 
 		assertFalse("Winner should be false",game.getWinner());
-
 	}
 
 	@Test
@@ -84,10 +82,13 @@ public class GameTest {
 		game.makeMove(8);
 
 		assertTrue("Should be a draw",game.getDraw());
+	}
 
-
-
-
+	@Test
+	public void testValidMenuInput() {
+		Game game = new Game();
+		assertTrue("validMenuInput should return true", game.validMenuInput(0));
+		assertFalse("validMenuInput should return false", game.validMenuInput(2));
 	}
 
 

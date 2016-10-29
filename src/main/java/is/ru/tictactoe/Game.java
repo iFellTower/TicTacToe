@@ -34,7 +34,7 @@ public class Game {
 	}
 
 	public boolean validInput(int input) {
-        if(input >= 1 && input <= 9){
+        if(input >= 1 && input <= 9) {
             Point point = convertToPoint(input);
             if (board.isFree(point)) {
                 return true;
@@ -44,6 +44,13 @@ public class Game {
         }
         return false;
     }
+
+	public boolean validMenuInput(int input) {
+		if(input >= 0 && input <= 1) {
+			return true;
+		}
+		return false;
+	}
 
     private void insertIntoBoard(int input) {
         Point point = convertToPoint(input);
@@ -75,18 +82,30 @@ public class Game {
             default: // Will not run because of check in validInput.
                      break;
                  }
- 
+
             return point;
     }
 
     public Board getBoard() {
         return board;
     }
-    
+
     public char getCurrPlayerSymbol() {
 
         return currPlayer.getSymbol();
     }
+
+	public Player getCurrPlayer() {
+		return currPlayer;
+	}
+
+	public Player getPlayerX() {
+		return playerX;
+	}
+
+	public Player getPlayerO() {
+		return playerO;
+	}
 
     private void switchPlayer() {
         if(currPlayer == playerX)
@@ -98,7 +117,7 @@ public class Game {
     public boolean getWinner() {
         return winner;
     }
-    
+
     private void checkWinner() {
         winner = board.winner();
     }
@@ -116,4 +135,3 @@ public class Game {
 
 
 }
-
