@@ -88,11 +88,6 @@ public class Game {
         return board;
     }
 
-    public char getCurrPlayerSymbol() {
-
-        return currPlayer.getSymbol();
-    }
-
 	public Player getCurrPlayer() {
 		return currPlayer;
 	}
