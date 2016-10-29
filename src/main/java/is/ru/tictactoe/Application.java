@@ -19,6 +19,7 @@ public class Application {
 			else {
 				playGame();
 				if (game.getWinner()) {
+					game.switchPlayer();
 					(game.getCurrPlayer()).incrementScore();
 					ui.printWinner(game.getCurrPlayer());
 				}
@@ -49,18 +50,16 @@ public class Application {
 			int input;
 			boolean validInput;
 			do{
-				input = ui.getInput();
+				input = ui.getNextMove(game.getCurrPlayer());
 				validInput = game.validInput(input);
 				if (!validInput) {
 					ui.printInvalidInput(1, 9);
 				}
 			} while (!validInput);
-
 			game.makeMove(input);
+			game.switchPlayer();
 		}
-
 	}
-
 	private boolean quitApp (int choice) {
 		return (choice == 0);
 	}

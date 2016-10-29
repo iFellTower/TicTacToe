@@ -17,21 +17,16 @@ public class Game {
          draw = false;
          playerX = new Player('X');
          playerO = new Player('O');
-         currPlayer = playerO;
+         currPlayer = playerX;
 	}
 
 
 	public void makeMove(int input) {
 
-        switchPlayer();
         insertIntoBoard(input);
         checkDraw();
         checkWinner();
     }
-
-	public void drawScreen() {
-
-	}
 
 	public boolean validInput(int input) {
         if(input >= 1 && input <= 9) {
@@ -107,7 +102,7 @@ public class Game {
 		return playerO;
 	}
 
-    private void switchPlayer() {
+    public void switchPlayer() {
         if(currPlayer == playerX)
             currPlayer = playerO;
         else
