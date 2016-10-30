@@ -3,7 +3,7 @@ jdk:
 - oraclejdk8
 sudo: false
 addons:
-- firefox: "49.0"
+- firefox: "latest"
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -20,7 +20,7 @@ before_script:
 script:
 - "./gradlew clean"
 - "./gradlew check"
-- "./gradlew selenium --info"
+- "./gradlew seleniumXvfb --info"
 - "./gradlew jacocTestReport"
 after_success:
 - codecov
