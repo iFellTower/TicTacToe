@@ -50,25 +50,27 @@
 
 <script>
 
-    $(document).ready( function() {
+    /*$(document).ready( function() {
         newGame();
-        $("#TTTtable").on("click", "td", function() {
-            /// If someone clicks a tile we get the ID of the tile
-            var tile = $(this).attr('id');
-            /// Check if the tile is already chosen
-            if($(this).html() != "X" && $(this).html() != "O"){
-                /// Build a post request to make a move
-                makeMove(tile);
-            } else {
-                // TODO: print an error message for tile has value
-            }
+    });*/
+
+    $("#TTTtable").on("click", "td", function() {
+        /// If someone clicks a tile we get the ID of the tile
+        var tile = $(this).attr('id');
+        /// Check if the tile is already chosen
+        if($(this).html() != "X" && $(this).html() != "O"){
+            /// Build a post request to make a move
+            makeMove(tile);
             checkWinner();
-            getScores();
-        });
-        /// Check if there is a winner
-        checkWinner();
+        } else {
+            // TODO: print an error message for tile has value
+        }
+
         getScores();
     });
+    /// Check if there is a winner
+    /*checkWinner();
+    getScores();*/
 
     function makeMove(tile){
         $.ajax({
@@ -79,20 +81,13 @@
             }
         }).done(function(success) {
             var move = JSON.parse(success);
+            console.log("I wrote down player " + move.player);
             document.getElementById(tile).innerHTML = move.player;
             /// After we make the move we need to change the player
-            changePlayer();
         }).fail(function() {
             console.log("Could not make move");
         });
     }
-
-    function changePlayer(){
-        $.ajax({
-            type: 'POST',
-            url: '/changePlayer'
-        });
-    };
 
     function newGame(){
         $.ajax({
@@ -116,6 +111,8 @@
             if(winner.status === true){
                 alert("Congrats to player " + winner.player + ", for winnig the game");
                 newGame();
+            } else {
+                changePlayer();
             }
         }).fail(function(){
             console.log("Check winner function failed");
@@ -136,6 +133,17 @@
             console.log("Could not get scores");
         });
     }
+
+    function changePlayer(){
+        $.ajax({
+            type: 'POST',
+            url: '/changePlayer'
+        }).done(function(){
+            console.log("playerChanged");
+        }).fail(function() {
+            console.log("-- Could not change player");
+        });
+    };
 
 </script>
 
