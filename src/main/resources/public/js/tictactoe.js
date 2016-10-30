@@ -21,9 +21,25 @@ function newGame(){
         url: '/newGame'
     });
     /// clear table
+    clearBoard();
+}
+
+function clearBoard(){
     for(var i = 1; i <= 9; i++){
         document.getElementById(i).innerHTML = "";
     }
+}
+
+function resetGame(){
+    $.ajax({
+        type: 'POST',
+        url: '/clearGame'
+    }).done(function() {
+        clearBoard();
+        getScores();
+    }).fail(function() {
+        console.log("could not initiate new game");
+    });
 }
 
 function checkWinner(){
@@ -38,7 +54,7 @@ function checkWinner(){
             alert("Congrats to player " + winner.player + ", for winnig the game");
             newGame();
         } else {
-            //changePlayer();
+            checkDraw();
         }
     }).fail(function(){
         console.log("Check winner function failed");
