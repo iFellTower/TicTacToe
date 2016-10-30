@@ -30,6 +30,18 @@ function clearBoard(){
     }
 }
 
+function resetGame(){
+    $.ajax({
+        type: 'POST',
+        url: '/clearGame'
+    }).done(function() {
+        clearBoard();
+        getScores();
+    }).fail(function() {
+        console.log("could not initiate new game");
+    });
+}
+
 function checkWinner(){
     $.ajax({
         type: 'GET',
