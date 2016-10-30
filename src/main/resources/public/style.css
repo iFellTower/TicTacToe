@@ -31,10 +31,10 @@ body {
 }
 
 .circle {
-    color:red;
+    color:rgb(255,51,51);
 }
 .cross {
-    color:black;
+    color:rgb(32,152,209);
 }
 
 .circle:hover, .cross:hover {
