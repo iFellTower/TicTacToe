@@ -1,0 +1,40 @@
+td {
+    background-color: rgb(215,215,215);
+    height: 130px;
+    width: 130px;
+    text-align: center;
+    font-size: 65px;
+    font-family: "Arial", cursive, sans-serif;
+    font-weight: bold;
+    line-height: 0;
+    margin: 100px;
+    border: 4px solid rgb(50,50,50);
+    border-spacing: 10px;
+    }
+td:hover {
+    background-color: rgb(32,152,209);
+}
+body {
+    background-color: rgb(50,50,50);
+    text-align: center;
+    font-family: "Arial", cursive, sans-serif;
+    color: white;
+}
+#TTTtable{
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.circle {
+    color:red;
+}
+.cross {
+    color:black;
+}
+
+.circle:hover, .cross:hover {
+    background-color: rgb(215,215,215);
+}
+
+
