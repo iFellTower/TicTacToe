@@ -1,4 +1,7 @@
-language: java
+language:
+    supported:
+        - java
+        - ruby
 jdk:
 - oraclejdk8
 sudo: false
