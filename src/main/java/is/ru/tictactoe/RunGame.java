@@ -8,11 +8,6 @@ import org.json.simple.JSONObject;
 public class RunGame  implements SparkApplication {
 
     public static void main (String[] args) {
-        /*Game game = new Game();
-        UI ui = new UI();
-        Application app = new Application(game,ui);
-
-        app.runApp();*/
 
         staticFileLocation("/public");
         SparkApplication runGame = new RunGame();
