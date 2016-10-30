@@ -38,7 +38,7 @@ function checkWinner(){
             alert("Congrats to player " + winner.player + ", for winnig the game");
             newGame();
         } else {
-            changePlayer();
+            //changePlayer();
         }
     }).fail(function(){
         console.log("Check winner function failed");
