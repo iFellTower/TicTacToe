@@ -44,8 +44,8 @@
     </table>
 
     <h3>Wins<h3>
-    <p>Player X:</p>
-    <p>Player O:</p>
+    <p>Player X: <span id="playerX"> 0 </span></p>
+    <p>Player O: <span id="playerO"> 0 </span></p>
 </body>
 
 <script>
@@ -78,10 +78,12 @@
             } else {
                 // TODO: print an error message for tile has value
             }
-            /// Check if there is a winner
             checkWinner();
-
+            getScores();
         });
+        /// Check if there is a winner
+        checkWinner();
+        getScores();
     });
 
     function newGame(){
@@ -89,6 +91,10 @@
             type: 'POST',
             url: '/newGame'
         });
+        /// clear table
+        for(var i = 1; i <= 9; i++){
+            document.getElementById(i).innerHTML = "";
+        }
     }
 
     function checkWinner(){
@@ -97,8 +103,29 @@
             url: '/checkWinner'
         }).done(function(success) {
             console.log(success);
+            // TODO: if there is a winner, announce it and clear board
+            var winner = JSON.parse(success);
+            if(winner.status === true){
+                alert("Congrats to player " + winner.player + ", for winnig the game");
+                newGame();
+            }
         }).fail(function(){
             console.log("Check winner function failed");
+        });
+    }
+
+    function getScores(){
+        $.ajax({
+            type: 'GET',
+            url: '/getScores'
+        }).done(function(scores) {
+            console.log(scores);
+            // TODO: update html with current score
+            var score = JSON.parse(scores);
+            document.getElementById('playerX').innerHTML = score.playerX;
+            document.getElementById('playerO').innerHTML = score.playerO;
+        }).fail(function(){
+            console.log("Could not get scores");
         });
     }
 
