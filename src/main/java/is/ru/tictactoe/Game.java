@@ -117,6 +117,10 @@ public class Game {
         return winner;
     }
 
+	public Player getWinPlayer() {
+		return winPlayer;
+	}
+
     private void checkWinner() {
         winner = board.winner();
     }
