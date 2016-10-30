@@ -9,6 +9,7 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+install: gem install rack
 before_install:
 - pip install --user codecov
 before_script:
