@@ -12,12 +12,17 @@ td {
     border-spacing: 10px;
     }
 td:hover {
-    background-color: rgb(32,152,209);
+    outline: 4px solid rgb(32,152,209);
+    outline-offset: -8px;
+}
+td:focus, td:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
 }
 body {
     background-color: rgb(50,50,50);
     text-align: center;
-    font-family: "Arial", cursive, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: white;
 }
 #TTTtable{
@@ -36,5 +41,3 @@ body {
 .circle:hover, .cross:hover {
     background-color: rgb(215,215,215);
 }
-
-
