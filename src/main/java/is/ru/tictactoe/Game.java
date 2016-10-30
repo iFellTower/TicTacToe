@@ -1,6 +1,5 @@
 package is.ru.tictactoe;
 
-
 import java.awt.Point;
 
 public class Game {
@@ -10,6 +9,7 @@ public class Game {
     private Player playerX;
     private Player playerO;
     private Player currPlayer;
+	private Player winPlayer;
 
 	public Game() {
 		 board = new Board();
@@ -17,20 +17,26 @@ public class Game {
          draw = false;
          playerX = new Player('X');
          playerO = new Player('O');
-         currPlayer = playerX;
+         currPlayer = playerO;
+		 winPlayer = null;
 	}
 
 	public void newGame() {
 		board.clearBoard();
 		winner = false;
 		draw = false;
-		currPlayer = playerX;
+		currPlayer = playerO;
 	}
 
 	public void makeMove(int input) {
+		switchPlayer();
         insertIntoBoard(input);
         checkDraw();
         checkWinner();
+		if (winner) {
+			winPlayer = currPlayer;
+			winPlayer.incrementScore();
+		}
     }
 
 	public boolean validInput(int input) {
@@ -110,6 +116,10 @@ public class Game {
     public boolean getWinner() {
         return winner;
     }
+
+	public Player getWinPlayer() {
+		return winPlayer;
+	}
 
     private void checkWinner() {
         winner = board.winner();

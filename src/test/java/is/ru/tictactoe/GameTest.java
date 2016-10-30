@@ -39,9 +39,9 @@ public class GameTest {
 	public void testSwitchPlayer() {
 		Game game = new Game();
 		game.switchPlayer();
-		assertEquals('O',game.getCurrPlayer().getSymbol());
-		game.switchPlayer();
 		assertEquals('X',game.getCurrPlayer().getSymbol());
+		game.switchPlayer();
+		assertEquals('O',game.getCurrPlayer().getSymbol());
 	}
 
 	@Test
@@ -49,13 +49,9 @@ public class GameTest {
 		Game game = new Game();
 
 		game.makeMove(1);
-		game.switchPlayer();
 		game.makeMove(4);
-		game.switchPlayer();
 		game.makeMove(2);
-		game.switchPlayer();
 		game.makeMove(5);
-		game.switchPlayer();
 		game.makeMove(3);
 
 		assertTrue("Winner should be true",game.getWinner());
@@ -66,15 +62,10 @@ public class GameTest {
 		Game game = new Game();
 
 		game.makeMove(4);
-		game.switchPlayer();
 		game.makeMove(5);
-		game.switchPlayer();
 		game.makeMove(6);
-		game.switchPlayer();
 		game.makeMove(7);
-		game.switchPlayer();
 		game.makeMove(8);
-		game.switchPlayer();
 		game.makeMove(9);
 
 		assertFalse("Winner should be false",game.getWinner());
@@ -108,7 +99,7 @@ public class GameTest {
 	@Test
 	public void testGetCurrPlayer () {
 		Game game = new Game();
-		Player player = new Player('X');
+		Player player = new Player('O');
 		assertEquals(player.getSymbol(), game.getCurrPlayer().getSymbol());
 	}
 
@@ -133,15 +124,10 @@ public class GameTest {
 		Game game = new Game();
 
 		game.makeMove(1);
-		game.switchPlayer();
 		game.makeMove(4);
-		game.switchPlayer();
 		game.makeMove(2);
-		game.switchPlayer();
 		game.makeMove(5);
-		game.switchPlayer();
 		game.makeMove(3);
-		game.switchPlayer();
 
 		game.newGame();
 		assertEquals('1', game.getBoard().getAt(new Point(0, 0)));
@@ -161,4 +147,21 @@ public class GameTest {
 		assertEquals(null, game.convertToPoint(10));
 	}
 
+	@Test
+	public void testGetWinPlayer() {
+		Game game = new Game();
+
+		game.makeMove(1);
+		game.makeMove(3);
+		game.makeMove(5);
+
+		assertEquals(null, game.getWinPlayer());
+
+		game.makeMove(2);
+		game.makeMove(9);
+
+		Player winner = game.getWinPlayer();
+
+		assertEquals('X', winner.getSymbol());
+	}
 }
