@@ -28,6 +28,12 @@ public class RunGame  implements SparkApplication {
     public void init() {
         final Game game = new Game();
 
+        post("newGame", (req, res) -> {
+            game.newGame();
+            res.status(200);
+            return res;
+        });
+
         post("makeMove", (req, res) -> {
             game.makeMove( Integer.parseInt(req.queryParams("tile")) );
 

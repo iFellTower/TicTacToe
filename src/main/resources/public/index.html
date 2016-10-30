@@ -10,7 +10,6 @@
     <meta name="game" content="Tic Tac Toe">
     <meta name="iFellTower" content="SitePoint">
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
     <style>
         td {
             border: 1px solid black;
@@ -52,6 +51,7 @@
 <script>
 
     $(document).ready( function() {
+        newGame();
         $("#TTTtable").on("click", "td", function() {
             /// If someone clicks a tile we get the ID of the tile
             var tile = $(this).attr('id');
@@ -78,9 +78,29 @@
             } else {
                 // TODO: print an error message for tile has value
             }
+            /// Check if there is a winner
+            checkWinner();
 
         });
     });
+
+    function newGame(){
+        $.ajax({
+            type: 'POST',
+            url: '/newGame'
+        });
+    }
+
+    function checkWinner(){
+        $.ajax({
+            type: 'GET',
+            url: '/checkWinner'
+        }).done(function(success) {
+            console.log(success);
+        }).fail(function(){
+            console.log("Check winner function failed");
+        });
+    }
 
 </script>
 
