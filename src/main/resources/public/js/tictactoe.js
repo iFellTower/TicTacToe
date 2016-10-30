@@ -8,7 +8,15 @@ function makeMove(tile){
     }).done(function(success) {
         var move = JSON.parse(success);
         console.log("I wrote down player " + move.player);
-        document.getElementById(tile).innerHTML = move.player;
+        if(move.player === 'X'){
+            var d = document.getElementById(tile);
+            d.className = "tile cross";
+            d.innerHTML = move.player;
+        } else {
+            var d = document.getElementById(tile);
+            d.className = "tile circle";
+            d.innerHTML = move.player;
+        }
         /// After we make the move we need to change the player
     }).fail(function() {
         console.log("Could not make move");
