@@ -24,6 +24,10 @@ repositories {
     }
 }
 
+sourceSets {
+    selenium
+}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
@@ -31,10 +35,21 @@ dependencies {
     compile 'com.sparkjava:spark-core:2.5'
     testCompile 'junit:junit:4.12'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+    // Selenium dependencies
+    seleniumCompile 'junit:junit:4.11'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-firefox-driver:3.0.1'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-chrome-driver:3.0.1'
 }
 
 task stage {
     dependsOn installDist
+}
+
+task selenium(type: Test, dependsOn: installDist) {
+    testClassesDir = sourceSets.selenium.output.classesDir
+    classpath = sourceSets.selenium.runtimeClasspath
+
 }
 
 jacocoTestReport {
