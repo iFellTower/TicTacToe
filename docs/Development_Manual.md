@@ -71,3 +71,15 @@ source "~/.sdkman/bin/sdkman-init.sh"
 sdk install gradle 3.1
 ```
 Where the source command should refer to your installation folder for *Gradle* After you have done that you can run *Gradle* commands using the keyword `gradle`
+
+#### Build and Deploy
+
+After doing everything mentioned above you can run the following command from the root of the project on *linux*...
+```
+./bin/build_and_deploy
+```
+... and for *Windows* you run:
+```
+./bin/build_and_deploy.bat
+```
+This script cleans the project, builds it, tests it and finally deploys it. It also gives you links to the documentation created during the build.
