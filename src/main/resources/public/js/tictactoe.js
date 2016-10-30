@@ -54,7 +54,7 @@ function checkWinner(){
             alert("Congrats to player " + winner.player + ", for winnig the game");
             newGame();
         } else {
-            //changePlayer();
+            checkDraw();
         }
     }).fail(function(){
         console.log("Check winner function failed");
