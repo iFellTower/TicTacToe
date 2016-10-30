@@ -56,13 +56,20 @@ public class RunGame  implements SparkApplication {
 
           if(game.getWinner()){
             Player winner = game.getCurrPlayer();
-
+            game.getCurrPlayer().incrementScore();
             status.put("status", true);
             status.put("player", Character.toString(winner.getSymbol()));
           } else {
             status.put("status", false);
           }
           return status;
+        });
+
+        get("getScores", (req, res) -> {
+            JSONObject scores = new JSONObject();
+            scores.put("playerX", game.getPlayerX().getScore());
+            scores.put("playerO", game.getPlayerO().getScore());
+            return scores;
         });
 
     }
