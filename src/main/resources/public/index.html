@@ -39,7 +39,7 @@
     <p>Player X: <span id="playerX"> 0 </span></p>
     <p>Player O: <span id="playerO"> 0 </span></p>
 </body>
-<button type="button" id="clearScores"> Clear scores </button>
+<button type="button" id="resetGame"> Reset game </button>
 <script>
 
     $("#TTTtable").on("click", "td", function() {
@@ -58,16 +58,7 @@
         getScores();
     });
 
-$("#clearScores").on("click", function(){
-    $.ajax({
-        type: 'POST',
-        url: '/initGame'
-    }).done(function() {
-        console.log("I got a response");
-    }).fail(function() {
-        console.log("could not initiate new game");
-    });
-});
+$("#resetGame").on("click", resetGame());
 
     $(document).ready(function() {
         getScores();

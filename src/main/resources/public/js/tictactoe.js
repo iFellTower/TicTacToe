@@ -21,6 +21,10 @@ function newGame(){
         url: '/newGame'
     });
     /// clear table
+    clearBoard();
+}
+
+function clearBoard(){
     for(var i = 1; i <= 9; i++){
         document.getElementById(i).innerHTML = "";
     }
