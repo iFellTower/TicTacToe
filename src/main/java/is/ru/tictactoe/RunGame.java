@@ -84,5 +84,11 @@ public class RunGame  implements SparkApplication {
             return scores;
         });
 
+        post("clearGame", (req, res) -> {
+            game.clearGame();
+            res.status(200);
+            return res;
+        });
+
     }
 }
