@@ -29,12 +29,9 @@ public class RunGame  implements SparkApplication {
         final Game game = new Game();
 
         post("makeMove", (req, res) -> {
-            game.makeMove(
-                Integer.parseInt(req.queryParams("tile"))
-            );
+            game.makeMove( Integer.parseInt(req.queryParams("tile")) );
 
             char playerSymbol = game.getCurrPlayer().getSymbol();
-
 
             JSONObject move = new JSONObject();
             move.put("status", "200");
@@ -46,6 +43,20 @@ public class RunGame  implements SparkApplication {
             game.switchPlayer();
             res.status(200);
             return res;
+        });
+
+        get("checkWinner", (req, res) -> {
+          JSONObject status = new JSONObject();
+
+          if(game.getWinner()){
+            Player winner = game.getCurrPlayer();
+
+            status.put("status", true);
+            status.put("player", Character.toString(winner.getSymbol()));
+          } else {
+            status.put("status", false);
+          }
+          return status;
         });
 
     }
