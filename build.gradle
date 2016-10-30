@@ -26,6 +26,7 @@ repositories {
 
 sourceSets {
     selenium
+    seleniumXvfb
 }
 
 // In this section you declare the dependencies for your production and test code
@@ -50,6 +51,19 @@ task selenium(type: Test, dependsOn: installDist) {
     testClassesDir = sourceSets.selenium.output.classesDir
     classpath = sourceSets.selenium.runtimeClasspath
 
+}
+
+task seleniumXvfb(type: Test, dependsOn: installDist) {
+    testClassesDir = sourceSets.selenium.output.classesDir
+    classpath = sourceSets.selenium.runtimeClasspath
+
+    doFirst {
+        'build/install/TicTacToe/bin/TicTacToe.bat &'.execute()
+    }
+
+    doLast {
+        'sh -e /etc/init.d/xvfb stop'.execute()
+    }
 }
 
 jacocoTestReport {

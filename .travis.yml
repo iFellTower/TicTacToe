@@ -9,7 +9,9 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-install: gem install rack
+install:
+-
+- gem install rack
 before_install:
 - pip install --user codecov
 before_script:
@@ -21,6 +23,7 @@ before_script:
 script:
 - "./gradlew clean"
 - "./gradlew check"
+- "./gradlew seleniumXvfb"
 - "./gradlew jacocTestReport"
 after_success:
 - codecov
