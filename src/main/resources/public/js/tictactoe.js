@@ -70,3 +70,18 @@ function changePlayer(){
         console.log("-- Could not change player");
     });
 };
+
+function checkDraw(){
+    $.ajax({
+        type: 'GET',
+        url: '/checkDraw'
+    }).done(function(success){
+        var draw = JSON.parse(success);
+        if(draw.status === true){
+            alert("There was a draw");
+            newGame();
+        }
+    }).fail(function() {
+        console.log("could not check for draw");
+    });
+};

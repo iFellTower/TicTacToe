@@ -65,6 +65,18 @@ public class RunGame  implements SparkApplication {
           return status;
         });
 
+        get("checkDraw", (req, res) -> {
+            JSONObject status = new JSONObject();
+
+            if(game.getDraw()) {
+                status.put("status", true);
+            } else {
+                status.put("status", false);
+            }
+
+            return status;
+        });
+
         get("getScores", (req, res) -> {
             JSONObject scores = new JSONObject();
             scores.put("playerX", game.getPlayerX().getScore());
