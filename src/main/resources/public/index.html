@@ -58,23 +58,7 @@
             /// Check if the tile is already chosen
             if($(this).html() != "X" && $(this).html() != "O"){
                 /// Build a post request to make a move
-                $.ajax({
-                    type: 'POST',
-                    url: '/makeMove',
-                    data: {
-                        'tile': tile
-                    }
-                }).done(function(success) {
-                    var move = JSON.parse(success);
-                    document.getElementById(tile).innerHTML = move.player;
-                    /// After we make the move we need to change the player
-                    $.ajax({
-                        type: 'POST',
-                        url: '/changePlayer'
-                    });
-                }).fail(function() {
-                    console.log("Something went wrong");
-                });
+                makeMove(tile);
             } else {
                 // TODO: print an error message for tile has value
             }
@@ -85,6 +69,30 @@
         checkWinner();
         getScores();
     });
+
+    function makeMove(tile){
+        $.ajax({
+            type: 'POST',
+            url: '/makeMove',
+            data: {
+                'tile': tile
+            }
+        }).done(function(success) {
+            var move = JSON.parse(success);
+            document.getElementById(tile).innerHTML = move.player;
+            /// After we make the move we need to change the player
+            changePlayer();
+        }).fail(function() {
+            console.log("Could not make move");
+        });
+    }
+
+    function changePlayer(){
+        $.ajax({
+            type: 'POST',
+            url: '/changePlayer'
+        });
+    };
 
     function newGame(){
         $.ajax({
