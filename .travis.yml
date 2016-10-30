@@ -20,7 +20,7 @@ before_script:
 script:
 - "./gradlew clean"
 - "./gradlew check"
-- "./gradlew seleniumXvfb"
+- "./gradlew selenium"
 - "./gradlew jacocTestReport"
 after_success:
 - codecov
