@@ -26,7 +26,7 @@ public class RunGame  implements SparkApplication {
 
     @Override
     public void init() {
-        Game game = new Game();
+        final Game game = new Game();
 
         post("newGame", (req, res) -> {
             game.newGame();
@@ -55,7 +55,7 @@ public class RunGame  implements SparkApplication {
           JSONObject status = new JSONObject();
 
           if(game.getWinner()){
-            Player winner = game.winPlayer();
+            Player winner = game.getWinPlayer();
 
             status.put("status", true);
             status.put("player", Character.toString(winner.getSymbol()));
