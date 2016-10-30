@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+
+    <title>iFellTower - Tic Tac Toe</title>
+    <meta name="game" content="Tic Tac Toe">
+    <meta name="iFellTower" content="SitePoint">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <style>
+        td {
+            border: 1px solid black;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>iFellTower's Tic Tac Toe</h1>
+    <table id="TTTtable">
+        <tr>
+            <td id="1" class="tile" value="Hello"></td>
+            <td id="2" class="tile"></td>
+            <td id="3" class="tile"></td>
+        </tr>
+        <tr>
+            <td id="4" class="tile"></td>
+            <td id="5" class="tile"></td>
+            <td id="6" class="tile"></td>
+        </tr>
+        <tr>
+            <td id="7" class="tile"></td>
+            <td id="8" class="tile"></td>
+            <td id="9" class="tile"></td>
+        </tr>
+    </table>
+
+    <h3>Wins<h3>
+    <p>Player X:</p>
+    <p>Player O:</p>
+</body>
+
+<script>
+
+    $(document).ready( function() {
+        $("#TTTtable").on("click", "td", function() {
+            /// If someone clicks a tile we get the ID of the tile
+            var tile = $(this).attr('id');
+            /// Check if the tile is already chosen
+            if($(this).html() != "X" && $(this).html() != "O"){
+                /// Build a post request to make a move
+                $.ajax({
+                    type: 'POST',
+                    url: '/makeMove',
+                    data: {
+                        'tile': tile
+                    }
+                }).done(function(success) {
+                    var move = JSON.parse(success);
+                    document.getElementById(tile).innerHTML = move.player;
+                    /// After we make the move we need to change the player
+                    $.ajax({
+                        type: 'POST',
+                        url: '/changePlayer'
+                    });
+                }).fail(function() {
+                    console.log("Something went wrong");
+                });
+            } else {
+                // TODO: print an error message for tile has value
+            }
+
+        });
+    });
+
+</script>
+
+</html>
