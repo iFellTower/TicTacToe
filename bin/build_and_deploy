@@ -1,0 +1,20 @@
+#!/bin/bash
+
+APP="TicTacToe"
+
+./gradlew clean
+./gradlew build
+./gradlew installDist
+
+# If the installation folder exists under /tmp, remove it
+test -f /tmp/${APP} && rm -r /tmp/${APP}
+cp -r build/install/${APP} /tmp
+
+# Display build reports
+echo '************************************************************************'
+echo '** Travis report: https://travis-ci.org/iFellTower/TicTacToe          **'
+echo '************************************************************************'
+echo '** Code Coverage report: https://codecov.io/gh/iFellTower/TicTacToe/  **'
+echo '************************************************************************'
+# Run application once
+/tmp/${APP}/bin/${APP}
