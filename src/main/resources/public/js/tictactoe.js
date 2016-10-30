@@ -7,7 +7,6 @@ function makeMove(tile){
         }
     }).done(function(success) {
         var move = JSON.parse(success);
-        console.log("I wrote down player " + move.player);
         if(move.player === 'X'){
             var d = document.getElementById(tile);
             d.className = "tile cross";
@@ -55,8 +54,6 @@ function checkWinner(){
         type: 'GET',
         url: '/checkWinner'
     }).done(function(success) {
-        console.log(success);
-        // TODO: if there is a winner, announce it and clear board
         var winner = JSON.parse(success);
         if(winner.status === true){
             alert("Congrats to player " + winner.player + ", for winnig the game");
@@ -74,8 +71,6 @@ function getScores(){
         type: 'GET',
         url: '/getScores'
     }).done(function(scores) {
-        console.log(scores);
-        // TODO: update html with current score
         var score = JSON.parse(scores);
         document.getElementById('playerX').innerHTML = score.playerX;
         document.getElementById('playerO').innerHTML = score.playerO;
@@ -84,16 +79,6 @@ function getScores(){
     });
 }
 
-function changePlayer(){
-    $.ajax({
-        type: 'POST',
-        url: '/changePlayer'
-    }).done(function(){
-        console.log("playerChanged");
-    }).fail(function() {
-        console.log("-- Could not change player");
-    });
-};
 
 function checkDraw(){
     $.ajax({
