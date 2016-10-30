@@ -7,7 +7,7 @@ public class TestTicTacToeWeb extends SeleniumTestWrapper {
 
     @Test
     public void titleMatches() throws InterruptedException {
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         driver.get(baseUrl);
         Thread.sleep(5000);
         assertEquals("iFellTower - Tic Tac Toe", driver.getTitle());
