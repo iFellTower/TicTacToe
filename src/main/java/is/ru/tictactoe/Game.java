@@ -121,6 +121,16 @@ public class Game {
 		return winPlayer;
 	}
 
+	public void clearGame() {
+		board.clearBoard();
+		winner = false;
+		draw = false;
+		currPlayer = playerO;
+		playerX = new Player('X');
+		playerO = new Player('O');
+		winPlayer = null;
+	}
+
     private void checkWinner() {
         winner = board.winner();
     }
